@@ -1,0 +1,218 @@
+@import "./fonts.css";
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* shadcn token mappings */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* AVS brand fonts */
+  --font-heading: "Questrial", var(--font-sans), sans-serif;
+  --font-paragraph: "Helvetica", "Arial", sans-serif;
+
+  /* shadcn semantic tokens */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* AVS brand colors (direct utilities like bg-vibrant-yellow) */
+  --color-vibrant-yellow: #fcf87c;
+  --color-vibrant-yellow-dark: #e8e66b;
+  --color-vibrant-yellow-light: #fdf9e8;
+  --color-dark-brown: #140800;
+  --color-dark-brown-light: #2d1600;
+  --color-accent-beige: #fcf87c;
+  --color-accent-gold: #fcf87c;
+
+  /* Radius scale */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Font sizes with line-height, letter-spacing, weight */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.25;
+  --text-xs--letter-spacing: 0.02em;
+  --text-xs--font-weight: 400;
+
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.3;
+  --text-sm--letter-spacing: 0.02em;
+  --text-sm--font-weight: 400;
+
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+  --text-base--letter-spacing: 0.02em;
+  --text-base--font-weight: 400;
+
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.5;
+  --text-lg--letter-spacing: 0.02em;
+  --text-lg--font-weight: 400;
+
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.5;
+  --text-xl--letter-spacing: 0.02em;
+  --text-xl--font-weight: 400;
+
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.4;
+  --text-2xl--letter-spacing: 0.01em;
+  --text-2xl--font-weight: 600;
+
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 1.3;
+  --text-3xl--letter-spacing: 0.01em;
+  --text-3xl--font-weight: 600;
+
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 1.2;
+  --text-4xl--letter-spacing: 0.01em;
+  --text-4xl--font-weight: 700;
+
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.1;
+  --text-5xl--letter-spacing: 0.005em;
+  --text-5xl--font-weight: 700;
+
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1.1;
+  --text-6xl--letter-spacing: 0.005em;
+  --text-6xl--font-weight: 700;
+
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1.05;
+  --text-7xl--letter-spacing: 0.005em;
+  --text-7xl--font-weight: 700;
+
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1.05;
+  --text-8xl--letter-spacing: 0.005em;
+  --text-8xl--font-weight: 700;
+
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1.05;
+  --text-9xl--letter-spacing: 0.005em;
+  --text-9xl--font-weight: 700;
+}
+
+:root {
+  /* AVS brand mapped onto shadcn tokens */
+  --background: #ffffff;
+  --foreground: #140800;
+  --card: #ffffff;
+  --card-foreground: #140800;
+  --popover: #ffffff;
+  --popover-foreground: #140800;
+
+  /* Brand: primary = dark brown, secondary = vibrant yellow */
+  --primary: #140800;
+  --primary-foreground: #fcf87c;
+  --secondary: #fcf87c;
+  --secondary-foreground: #140800;
+
+  --muted: #fdf9e8;
+  --muted-foreground: #2d1600;
+  --accent: #fcf87c;
+  --accent-foreground: #140800;
+  --destructive: #e53935;
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: #140800;
+  --chart-1: #fcf87c;
+  --chart-2: #e8e66b;
+  --chart-3: #2d1600;
+  --chart-4: #140800;
+  --chart-5: #fdf9e8;
+  --radius: 0.625rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #140800;
+  --sidebar-primary: #140800;
+  --sidebar-primary-foreground: #fcf87c;
+  --sidebar-accent: #fcf87c;
+  --sidebar-accent-foreground: #140800;
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: #140800;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-paragraph;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}

@@ -1,0 +1,531 @@
+{
+  "Header": {
+    "home": "home",
+    "loans": "loans",
+    "creditLines": "credit lines",
+    "contacts": "contacts",
+    "faq": "faq",
+    "apply": "apply",
+    "language": "Language"
+  },
+  "HomePage": {
+    "hero": {
+      "titleLine1": "competitive terms.",
+      "titleLine2": "tailored financing.",
+      "titleLine3": "personal service.",
+      "subtitle": "secured financing for legal entities registered in estonia.",
+      "description": "loans and credit lines with annual interest from 9,5% plus 6-month euribor, tailored financing structures, a straightforward application process and support from a dedicated client manager.",
+      "applyCta": "apply now"
+    },
+    "whyChoose": {
+      "heading": "why choose avs",
+      "terms": {
+        "title": "competitive terms",
+        "description": "annual interest from 9,5% plus 6-month euribor, financing of up to 80% of the collateral value and flexible repayment terms."
+      },
+      "process": {
+        "title": "efficient process",
+        "description": "complete the application process and receive an indicative offer within two business days."
+      },
+      "support": {
+        "title": "personal support",
+        "description": "a dedicated client manager to guide the process and understand your business needs."
+      }
+    },
+    "offers": {
+      "heading": "what avs offers",
+      "loans": {
+        "title": "loans",
+        "description": "loans for legal entities that need capital for refinancing, investment, property-backed projects, working capital or other business purposes.",
+        "cta": "explore loans",
+        "imageAlt": "Loans financing"
+      },
+      "creditLines": {
+        "title": "credit lines",
+        "description": "flexible pre-approved credit for legal entities that want funds available when needed. use the limit repeatedly, draw only what you need, and pay interest only on the outstanding drawn amount.",
+        "cta": "explore credit lines",
+        "imageAlt": "Credit lines financing"
+      }
+    }
+  },
+  "Footer": {
+    "tagline": "your partner for financing solutions.",
+    "license": "avs finance oü operates under financial institution licence ffa000503 granted by the financial intelligence unit of estonia.",
+    "services": {
+      "heading": "services",
+      "loans": "loans",
+      "creditLines": "credit lines"
+    },
+    "resources": {
+      "heading": "resources",
+      "priceList": "price list",
+      "faq": "faq",
+      "apply": "apply for financing",
+      "terms": "terms of service"
+    },
+    "contact": {
+      "heading": "contact",
+      "address": "kentmanni tn 6, 10116 tallinn"
+    },
+    "copyright": "© {year} avs finance. all rights reserved."
+  },
+
+  "ApplicationPage": {
+    "hero": {
+      "title": "financing application",
+      "subtitle": "complete the form below to apply for financing. our team will review your application and contact you within two business days."
+    },
+    "success": {
+      "heading": "application submitted successfully",
+      "body": "thank you for choosing avs finance. we have received your application and our team will review it shortly. you will receive a response within 5-7 business days.",
+      "redirecting": "redirecting to homepage..."
+    },
+    "errors": {
+      "apiError": "API error: {status}",
+      "generic": "An error occurred while submitting the form. Please try again."
+    },
+    "loanDetails": {
+      "heading": "general details",
+      "loanType": "financing type",
+      "loanTypePlaceholder": "select loan type",
+      "corporateLoan": "corporate loan",
+      "creditLine": "credit line",
+      "loanAmount": "financing amount (eur)",
+      "loanPurpose": "purpose of the financing",
+      "loanPurposePlaceholder": "please describe the purpose of the loan...",
+      "scheduleType": "schedule type",
+      "scheduleTypePlaceholder": "select schedule type",
+      "annuity": "annuity",
+      "bullet": "bullet",
+      "loanPeriod": "loan period (months)",
+      "loanPeriodPlaceholder": "total duration of the loan",
+      "gracePeriod": "grace period duration (months)",
+      "gracePeriodPlaceholder": "period where only interest is paid"
+    },
+    "companyInformation": {
+      "heading": "company information",
+      "companyName": "company name",
+      "registrationNumber": "registration number",
+      "registrationAddress": "registration address",
+      "communicationLanguage": "communication language",
+      "communicationLanguagePlaceholder": "select language",
+      "estonian": "estonian",
+      "english": "english",
+      "russian": "russian",
+      "taxResidency": "tax residency",
+      "taxResidencyPlaceholder": "country of tax residency"
+    },
+    "contactInformation": {
+      "heading": "contact information",
+      "fullName": "full name of representative",
+      "email": "email address",
+      "identificationCode": "personal identification code",
+      "phone": "phone number",
+      "representationType": "representation type",
+      "representationTypePlaceholder": "select representation type",
+      "legalRepresentative": "legal representative",
+      "authorizedRepresentative": "authorized representative"
+    },
+    "beneficiary": {
+      "heading": "beneficiary information",
+      "identificationCode": "personal identification code",
+      "fullName": "full name",
+      "country": "country of residence",
+      "countryPlaceholder": "country of residence"
+    },
+    "pep": {
+      "heading": "questionnaire",
+      "isPEP": "is any person related to the company a pep (politically exposed person)?",
+      "selectPlaceholder": "select an option",
+      "yes": "yes",
+      "no": "no"
+    },
+    "collateral": {
+      "heading": "collateral",
+      "type": "collateral type",
+      "mortgage": "mortgage",
+      "other": "other",
+      "propertyType": "property type",
+      "propertyTypePlaceholder": "select property type",
+      "apartment": "apartment",
+      "building": "building",
+      "land": "land",
+      "otherProperty": "other",
+      "address": "address",
+      "addressPlaceholder": "enter property address",
+      "description": "description",
+      "descriptionPlaceholder": "describe the collateral",
+      "addCollateral": "+ add collateral",
+      "remove": "remove collateral",
+      "suretyHeading": "surety information",
+      "representativeIsSurety": "the representative of the company is willing to act as a surety personally",
+      "otherIsSurety": "another person related to the company is willing to act as a surety",
+      "suretyName": "name of surety person",
+      "suretyNamePlaceholder": "full name",
+      "suretyIdCode": "identification code",
+      "suretyIdCodePlaceholder": "identification code"
+    },
+    "submit": {
+      "submit": "submit application",
+      "submitting": "submitting application...",
+      "requiredHint": "* required fields."
+    }
+  },
+  "ContactsPage": {
+    "support": {
+      "heading": "customer support",
+      "subheading": "ask any questions or receive further information about our services",
+      "phone": {
+        "title": "support by phone",
+        "hours": "mon–fri 9:00–18:00, sat 10:00–15:00"
+      },
+      "office": {
+        "title": "support at the office",
+        "hours": "mon–fri 10:00–16:00",
+        "address": "kentmanni tn 6, 10166 tallinn"
+      },
+      "email": {
+        "title": "write to us"
+      }
+    },
+    "form": {
+      "heading": "contact form",
+      "name": "name",
+      "namePlaceholder": "your name",
+      "email": "email",
+      "emailPlaceholder": "your email",
+      "message": "message",
+      "messagePlaceholder": "your message",
+      "submit": "send message"
+    },
+    "map": {
+      "heading": "find us"
+    },
+    "company": {
+      "heading": "company details",
+      "subheading": "official information and credentials for avs finance oü",
+      "registryCode": "registry code",
+      "vatCode": "vat code",
+      "licenceNumber": "licence number",
+      "address": "registered address",
+      "addressValue": "kentmanni tn 6, 10116 tallinn",
+      "bankAccounts": "bank accounts",
+      "swedbank": "swedbank",
+      "coopPank": "coop pank"
+    },
+    "team": {
+      "heading": "meet our team",
+      "noImage": "No image",
+      "socialMedia": "Social Media",
+      "empty": "No team members found"
+    },
+    "cta": {
+      "heading": "ready to proceed?",
+      "subheading": "get started with our financing solutions today. our team is ready to help you find the perfect solution for your business.",
+      "button": "apply"
+    }
+  },
+  "TeamMembers": {
+    "roles": {
+      "ceo": "Chief Executive Officer",
+      "headOfCredit": "Head of Credit"
+    },
+    "bios": {
+      "personOne": "Bio for person one. Replace with the actual bio.",
+      "personTwo": "Bio for person two. Replace with the actual bio."
+    }
+  },
+  "FAQPage": {
+    "hero": {
+      "title": "frequently asked questions",
+      "subtitle": "find answers to common questions below."
+    },
+    "categories": {
+      "all": "all questions",
+      "general": "general",
+      "loans": "loans",
+      "creditLines": "credit lines",
+      "rates": "rates & fees",
+      "payments": "payments",
+      "collateral": "collateral"
+    },
+    "cta": {
+      "heading": "didn't find your answer?",
+      "subheading": "our customer support team is here to help. reach out to us with any questions.",
+      "button": "contact us"
+    }
+  },
+  "LoansPage": {
+    "hero": {
+      "titleMain": "loans.",
+      "titleAccent": "capital for the next step.",
+      "subtitle": "straightforward loans for businesses that need financing for a specific purpose.",
+      "description": "use it for refinancing, investment, a property project or another business need, with terms structured around your plans.",
+      "cta": "apply now",
+      "imageAlt": "a bridge being built over water"
+    },
+    "overview": {
+      "heading": "loan overview",
+      "subheading": "transparent terms designed to support your business growth",
+      "terms": {
+        "applicant": {
+          "label": "applicant",
+          "value": "a company, non-profit association or sole proprietor registered in estonia"
+        },
+        "loanAmount": {
+          "label": "loan amount",
+          "value": "from 20 000 € to 1 000 000 €"
+        },
+        "ltv": {
+          "label": "ltv",
+          "value": "up to 80% of the collateral value"
+        },
+        "loanTerm": {
+          "label": "loan term",
+          "value": "up to 120 months"
+        },
+        "gracePeriod": {
+          "label": "grace period",
+          "value": "optional, up to 12 months"
+        },
+        "paymentSchedule": {
+          "label": "payment schedule",
+          "value": "annuity or bullet schedule"
+        },
+        "collateral": {
+          "label": "collateral",
+          "value": "mortgage on building, apartment or land in estonia; mortgage can be combined with surety"
+        },
+        "interestRate": {
+          "label": "interest rate",
+          "value": "from 9,5% per annum plus 6-month euribor, calculated on the outstanding loan balance"
+        },
+        "originationFee": {
+          "label": "origination fee",
+          "value": "from 1% to 2% of the loan amount"
+        }
+      },
+      "annuity": {
+        "title": "annuity schedule",
+        "description": "equal monthly payments throughout the loan term. each payment includes both principal and interest."
+      },
+      "bullet": {
+        "title": "bullet schedule",
+        "description": "interest-only payments during the loan term with the full principal repaid at maturity."
+      }
+    },
+    "process": {
+      "heading": "loan application process",
+      "subheading": "simple and straightforward steps to get your financing",
+      "step1": "submit the application form.",
+      "step2": "we review the information and may contact you for clarifications. if the information is sufficient, we aim to provide an indicative offer within 48 business hours.",
+      "step3": "if the terms are suitable, we complete the required checks and prepare the loan and security documents.",
+      "step4": "once the documents are signed and all disbursement conditions are met, the loan is paid out."
+    },
+    "cta": {
+      "heading": "ready to proceed?",
+      "subheading": "get started with our financing solutions today. our team is ready to help you find the suitable solution for your business.",
+      "applyButton": "apply now",
+      "contactButton": "contact us"
+    }
+  },
+  "CreditLinePage": {
+    "hero": {
+      "title": "credit lines. funding on demand.",
+      "subtitle": "a flexible credit line for businesses that want financing ready to use.",
+      "description": "use it when needed, reuse it as you repay, and pay interest only on the amount in use.",
+      "cta": "apply now",
+      "imageAlt": "credit line financing"
+    },
+    "overview": {
+      "heading": "credit line overview",
+      "subheading": "transparent terms designed to support your business growth",
+      "terms": {
+        "applicant": {
+          "label": "applicant",
+          "value": "a company, non-profit association or sole proprietor registered in estonia"
+        },
+        "creditLimit": {
+          "label": "credit line limit",
+          "value": "from 20 000 € to 500 000 €"
+        },
+        "ltv": {
+          "label": "ltv",
+          "value": "up to 75% of the collateral value"
+        },
+        "creditPeriod": {
+          "label": "credit period",
+          "value": "up to 60 months"
+        },
+        "drawdown": {
+          "label": "drawdown",
+          "value": "as needed by the client"
+        },
+        "collateral": {
+          "label": "collateral",
+          "value": "mortgage on building, apartment or land in estonia; mortgage can be combined with surety"
+        },
+        "interestRate": {
+          "label": "interest rate",
+          "value": "from 9,5% per annum plus 6-month euribor, calculated on the drawn credit balance"
+        },
+        "originationFee": {
+          "label": "origination fee",
+          "value": "from 1% to 2% of the credit line amount"
+        },
+        "commitmentFee": {
+          "label": "commitment fee",
+          "value": "4% per annum, calculated on the undrawn credit balance"
+        }
+      }
+    },
+    "process": {
+      "heading": "credit line application process",
+      "subheading": "simple and straightforward steps to get your financing",
+      "step1": "submit the application form.",
+      "step2": "we review the information and may contact you for clarifications. if the information is sufficient, we aim to provide an indicative offer within 48 business hours.",
+      "step3": "if the terms are suitable, we complete the required checks and prepare the loan and security documents.",
+      "step4": "once the documents are signed and all disbursement conditions are met, the credit line is made available for drawdowns."
+    },
+    "cta": {
+      "heading": "ready to proceed?",
+      "subheading": "get started with our financing solutions today. our team is ready to help you find the perfect solution for your business.",
+      "applyButton": "apply now",
+      "contactButton": "contact us"
+    }
+  },
+  "TermsOfServicePage": {
+    "hero": {
+      "title": "terms of service",
+      "subtitle": "download and review our legal documents."
+    },
+    "documents": {
+      "websiteTerms": {
+        "title": "website terms of use",
+        "description": "terms and conditions governing the use of the avs finance website."
+      },
+      "dataProcessing": {
+        "title": "principles of customer data processing",
+        "description": "principles for the processing and protection of customer data."
+      },
+      "financingTerms": {
+        "title": "general terms and conditions",
+        "description": "terms and conditions applicable to financing agreements for legal entities."
+      }
+    },
+    "downloadButton": "download pdf",
+    "cta": {
+      "heading": "questions about our terms?",
+      "subheading": "our customer support team is here to help. reach out to us with any questions or concerns.",
+      "button": "contact us"
+    }
+  },
+  "PriceListPage": {
+    "hero": {
+      "title": "price list",
+      "subtitle": "transparent pricing for all our financial services."
+    },
+    "effectiveDate": "price list effective from 27 march 2026.",
+    "vatNotice": "value added tax (vat) may be added to service fees in accordance with applicable law.",
+    "sections": {
+      "agreementFees": {
+        "name": "agreement fees",
+        "items": {
+          "entryFee": {
+            "title": "entry into contract fee",
+            "price": "1%–2% of the credit amount, minimum €200"
+          },
+          "commitmentFee": {
+            "title": "credit line commitment fee",
+            "price": "4% per annum on the undrawn amount"
+          }
+        }
+      },
+      "changes": {
+        "name": "changes to the agreement",
+        "items": {
+          "increaseCreditAmount": {
+            "title": "increase of the credit amount",
+            "price": "1% of the additional credit amount, minimum €100"
+          },
+          "changePaymentDate": {
+            "title": "change of payment date",
+            "price": "€20"
+          },
+          "paymentHoliday": {
+            "title": "payment holiday or restructuring due to payment difficulties",
+            "price": "0,1% of credit balance, minimum €100"
+          },
+          "earlyRepayment": {
+            "title": "partial or full early repayment",
+            "price": "free of charge if notice is given at least 3 months in advance; otherwise, interest calculated on the credit amount repaid early for the portion of the 3-month notice period not observed"
+          },
+          "earlyTermination": {
+            "title": "early termination of a credit line or reduction of a credit line limit",
+            "price": "free of charge if notice is given at least 3 months in advance; otherwise, a commitment fee will be charged on the reduced amount or, in the case of early termination, on the undrawn credit line balance, for the portion of the 3-month notice period not observed"
+          },
+          "otherAmendments": {
+            "title": "other amendments to the agreement (for example, change of term or replacement of collateral)",
+            "price": "1% of the credit balance, minimum €100"
+          }
+        }
+      },
+      "notarial": {
+        "name": "notarial transactions",
+        "items": {
+          "attendanceMortgage": {
+            "title": "attendance at a notarial transaction for the creation of a mortgage on entry into a new credit agreement, upon full repayment of the credit amount, or for the creation of an additional mortgage",
+            "price": "free of charge"
+          },
+          "attendanceOther": {
+            "title": "attendance at a notarial transaction for any other reason",
+            "price": "€100"
+          }
+        }
+      },
+      "collection": {
+        "name": "collection costs",
+        "items": {
+          "reminder": {
+            "title": "reminder letter or debt notice",
+            "price": "first free of charge, from the second onwards €10"
+          },
+          "noticeOfTermination": {
+            "title": "notice of termination",
+            "price": "€20"
+          },
+          "terminationLetter": {
+            "title": "termination letter",
+            "price": "€40"
+          }
+        }
+      },
+      "additional": {
+        "name": "additional services",
+        "items": {
+          "confirmationLetter": {
+            "title": "confirmation letter",
+            "price": "€10"
+          },
+          "auditorConfirmation": {
+            "title": "confirmation letter for an auditor",
+            "price": "€20"
+          },
+          "specialRequest": {
+            "title": "special information request",
+            "price": "€30 per hour, minimum €30"
+          }
+        }
+      },
+      "defaultInterest": {
+        "name": "default interest",
+        "items": {
+          "penaltyRate": {
+            "title": "rate of penalty for late payment",
+            "price": "0,1% per day (36,5% per annum)"
+          }
+        }
+      }
+    }
+  }
+}
