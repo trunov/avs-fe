@@ -393,5 +393,139 @@
       "applyButton": "esita taotlus",
       "contactButton": "võta ühendust"
     }
+  },
+  "PriceListPage": {
+    "hero": {
+      "title": "hinnakiri",
+      "subtitle": "läbipaistvad hinnad kõigile meie finantsteenustele."
+    },
+    "effectiveDate": "hinnakiri kehtib alates 27. märtsist 2026.",
+    "vatNotice": "teenustasudele võib vastavalt kehtivale seadusele lisanduda käibemaks.",
+    "sections": {
+      "agreementFees": {
+        "name": "lepingutasud",
+        "items": {
+          "entryFee": {
+            "title": "lepingu sõlmimise tasu",
+            "price": "1%–2% krediidisummast, minimaalselt €200"
+          },
+          "commitmentFee": {
+            "title": "krediidiliini reservatsioonitasu",
+            "price": "4% aastas kasutamata summalt"
+          }
+        }
+      },
+      "changes": {
+        "name": "lepingu muudatused",
+        "items": {
+          "increaseCreditAmount": {
+            "title": "krediidisumma suurendamine",
+            "price": "1% täiendavast krediidisummast, minimaalselt €100"
+          },
+          "changePaymentDate": {
+            "title": "maksepäeva muutmine",
+            "price": "€20"
+          },
+          "paymentHoliday": {
+            "title": "maksepuhkus või restruktureerimine makseraskuste tõttu",
+            "price": "0,1% krediidijäägist, minimaalselt €100"
+          },
+          "earlyRepayment": {
+            "title": "osaline või täielik ennetähtaegne tagasimakse",
+            "price": "tasuta, kui sellest teatatakse vähemalt 3 kuud ette; vastasel juhul arvestatakse ennetähtaegselt tagastatud krediidisummalt intressi etteteatamistähtaja järgimata osa eest"
+          },
+          "earlyTermination": {
+            "title": "krediidiliini ennetähtaegne lõpetamine või limiidi vähendamine",
+            "price": "tasuta, kui sellest teatatakse vähemalt 3 kuud ette; vastasel juhul rakendatakse reservatsioonitasu vähendatud summale või lõpetamise korral kasutamata krediidijäägile etteteatamistähtaja järgimata osa eest"
+          },
+          "otherAmendments": {
+            "title": "muud lepingu muudatused (näiteks tähtaja muutmine või tagatise asendamine)",
+            "price": "1% krediidijäägist, minimaalselt €100"
+          }
+        }
+      },
+      "notarial": {
+        "name": "notariaalsed tehingud",
+        "items": {
+          "attendanceMortgage": {
+            "title": "osalemine notariaalses tehingus hüpoteegi seadmiseks uue krediidilepingu sõlmimisel, krediidi täielikul tagasimaksmisel või täiendava hüpoteegi seadmisel",
+            "price": "tasuta"
+          },
+          "attendanceOther": {
+            "title": "osalemine notariaalses tehingus muul põhjusel",
+            "price": "€100"
+          }
+        }
+      },
+      "collection": {
+        "name": "sissenõudmiskulud",
+        "items": {
+          "reminder": {
+            "title": "meeldetuletuskiri või võlateatis",
+            "price": "esimene tasuta, alates teisest €10"
+          },
+          "noticeOfTermination": {
+            "title": "lepingu lõpetamise teade",
+            "price": "€20"
+          },
+          "terminationLetter": {
+            "title": "lepingu lõpetamise kiri",
+            "price": "€40"
+          }
+        }
+      },
+      "additional": {
+        "name": "lisateenused",
+        "items": {
+          "confirmationLetter": {
+            "title": "kinnituskiri",
+            "price": "€10"
+          },
+          "auditorConfirmation": {
+            "title": "audiitorile mõeldud kinnituskiri",
+            "price": "€20"
+          },
+          "specialRequest": {
+            "title": "eriteabe päring",
+            "price": "€30 tunnis, minimaalselt €30"
+          }
+        }
+      },
+      "defaultInterest": {
+        "name": "viivis",
+        "items": {
+          "penaltyRate": {
+            "title": "hilinenud makse viivisemäär",
+            "price": "0,1% päevas (36,5% aastas)"
+          }
+        }
+      }
+    }
+  },
+  "TermsOfServicePage": {
+    "hero": {
+      "title": "teenusetingimused",
+      "subtitle": "laadige alla ja tutvuge meie juriidiliste dokumentidega."
+    },
+    "documents": {
+      "websiteTerms": {
+        "title": "veebilehe kasutustingimused",
+        "description": "tingimused, mis reguleerivad avs finance veebilehe kasutamist."
+      },
+      "dataProcessing": {
+        "title": "kliendiandmete töötlemise põhimõtted",
+        "description": "kliendiandmete töötlemise ja kaitsmise põhimõtted."
+      },
+      "financingTerms": {
+        "title": "üldtingimused",
+        "description": "juriidiliste isikute finantseerimislepingutele kohaldatavad tingimused."
+      }
+    },
+    "downloadButton": "laadi pdf alla",
+    "cta": {
+      "heading": "küsimusi meie tingimuste kohta?",
+      "subheading": "meie klienditugi on valmis aitama. võtke meiega ühendust küsimuste või murede korral.",
+      "button": "võta ühendust"
+    }
   }
 }
