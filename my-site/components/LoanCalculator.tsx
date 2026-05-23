@@ -1,10 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { X } from 'lucide-react';
-import { formatEuropeanNumber, formatEuropeanPercent } from '@/lib/format-number';
+import { formatEuropeanNumber } from '@/lib/format-number';
 
 interface PaymentScheduleItem {
   month: number;
@@ -29,7 +28,7 @@ export default function LoanCalculator() {
     const months = duration;
 
     let monthlyPayment = 0;
-    let schedule: PaymentScheduleItem[] = [];
+    const schedule: PaymentScheduleItem[] = [];
     let totalInterest = 0;
 
     if (scheduleType === 'annuity') {

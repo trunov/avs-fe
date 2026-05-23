@@ -36,6 +36,8 @@ interface RepresentativeSurety {
   identificationCode: string;
 }
 
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 export default function ApplicationPage() {
   const t = useTranslations("ApplicationPage");
   const router = useRouter();
@@ -44,35 +46,29 @@ export default function ApplicationPage() {
   const [error, setError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
-    loanType: "",
-    loanPurpose: "",
-    loanAmount: "",
+    // Financing Details
+    financingType: "",
+    financingAmount: "",
+    financingPurpose: "",
     scheduleType: "",
-    gracePeriodDuration: "",
     loanPeriod: "",
-    companyName: "",
+    // Applicant Information
+    legalEntityName: "",
     registrationNumber: "",
-    registrationAddress: "",
     communicationLanguage: "",
-    taxResidency: "",
-    representativeFullName: "",
-    representativeEmail: "",
-    representativeIdentificationCode: "",
-    representativePhone: "",
-    representationType: "",
-    beneficiaryIdentificationCode: "",
-    beneficiaryFullName: "",
-    beneficiaryCountry: "",
-    isPEPRelated: "",
+    contactPersonName: "",
+    phoneNumber: "",
+    emailAddress: "",
+    // Surety Information
     isRepresentativeSurety: false,
     isOtherPersonSurety: false,
-    // Surety Information
   });
 
   const [collaterals, setCollaterals] = useState<Collateral[]>([]);
-  const [representativeSurety, setRepresentativeSurety] = useState({
-    identificationCode: "",
-  });
+  const [representativeSurety, setRepresentativeSurety] =
+    useState<RepresentativeSurety>({
+      identificationCode: "",
+    });
   const [otherSuretyPerson, setOtherSuretyPerson] = useState<SuretyPerson>({
     name: "",
     identificationCode: "",
@@ -115,49 +111,61 @@ export default function ApplicationPage() {
     setIsSubmitting(true);
     setError(null);
 
+    // Validate at least one collateral is provided
+    if (collaterals.length === 0) {
+      setError(t("errors.collateralRequired"));
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Validate collateral fields
+    for (const collateral of collaterals) {
+      if (collateral.type === "mortgage") {
+        if (!collateral.propertyType || !collateral.address) {
+          setError(t("errors.mortgageFieldsRequired"));
+          setIsSubmitting(false);
+          return;
+        }
+      } else if (collateral.type === "other") {
+        if (!collateral.description) {
+          setError(t("errors.otherDescriptionRequired"));
+          setIsSubmitting(false);
+          return;
+        }
+      }
+    }
+
     const submissionData = {
-      loanDetails: {
-        loanType: formData.loanType,
-        loanPurpose: formData.loanPurpose,
-        loanAmount: parseFloat(formData.loanAmount),
+      financingDetails: {
+        financingType: formData.financingType,
+        financingAmount: parseFloat(formData.financingAmount),
+        financingPurpose: formData.financingPurpose,
         scheduleType: formData.scheduleType,
-        gracePeriodDuration: parseInt(formData.gracePeriodDuration),
         loanPeriod: parseInt(formData.loanPeriod),
       },
-      companyInformation: {
-        companyName: formData.companyName,
+      applicantInformation: {
+        legalEntityName: formData.legalEntityName,
         registrationNumber: formData.registrationNumber,
-        registrationAddress: formData.registrationAddress,
         communicationLanguage: formData.communicationLanguage,
-        taxResidency: formData.taxResidency,
+        contactPersonName: formData.contactPersonName,
+        phoneNumber: formData.phoneNumber,
+        emailAddress: formData.emailAddress,
       },
-      contactInformation: {
-        representativeFullName: formData.representativeFullName,
-        representativeEmail: formData.representativeEmail,
-        representativeIdentificationCode:
-          formData.representativeIdentificationCode,
-        representativePhone: formData.representativePhone,
-        representationType: formData.representationType,
-      },
-      beneficiaryInformation: {
-        beneficiaryIdentificationCode: formData.beneficiaryIdentificationCode,
-        beneficiaryFullName: formData.beneficiaryFullName,
-        beneficiaryCountry: formData.beneficiaryCountry,
-      },
-      questionnaire: { isPEPRelated: formData.isPEPRelated },
       collaterals,
       suretyInformation: {
         isRepresentativeSurety: formData.isRepresentativeSurety,
+        representativeSurety: formData.isRepresentativeSurety
+          ? representativeSurety
+          : null,
         isOtherPersonSurety: formData.isOtherPersonSurety,
         otherSuretyPerson: formData.isOtherPersonSurety
           ? otherSuretyPerson
           : null,
       },
-      submittedAt: new Date().toISOString(),
     };
 
     try {
-      const response = await fetch("/api/applications", {
+      const response = await fetch(`${API_BASE}/api/v1/application`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(submissionData),
@@ -252,27 +260,31 @@ export default function ApplicationPage() {
             onSubmit={handleSubmit}
             className="p-8 md:p-12 rounded-2xl space-y-8 bg-background"
           >
-            {/* 1. Loan Details */}
+            {/* 1. Financing Details */}
             <div>
               <h2 className="font-heading text-3xl text-dark-brown mb-6">
-                {t("loanDetails.heading")}
+                {t("financingDetails.heading")}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label
-                    htmlFor="loanType"
+                    htmlFor="financingType"
                     className="font-paragraph text-base text-dark-brown"
                   >
-                    {t("loanDetails.loanType")} *
+                    {t("financingDetails.financingType")} *
                   </Label>
                   <Select
-                    value={formData.loanType}
-                    onValueChange={(v) => handleSelectChange("loanType", v)}
+                    value={formData.financingType}
+                    onValueChange={(v) =>
+                      handleSelectChange("financingType", v)
+                    }
                     required
                   >
                     <SelectTrigger className="font-paragraph">
                       <SelectValue
-                        placeholder={t("loanDetails.loanTypePlaceholder")}
+                        placeholder={t(
+                          "financingDetails.financingTypePlaceholder",
+                        )}
                       />
                     </SelectTrigger>
                     <SelectContent>
@@ -280,13 +292,13 @@ export default function ApplicationPage() {
                         value="corporate-loan"
                         className="font-paragraph"
                       >
-                        {t("loanDetails.corporateLoan")}
+                        {t("financingDetails.corporateLoan")}
                       </SelectItem>
                       <SelectItem
                         value="credit-line"
                         className="font-paragraph"
                       >
-                        {t("loanDetails.creditLine")}
+                        {t("financingDetails.creditLine")}
                       </SelectItem>
                     </SelectContent>
                   </Select>
@@ -294,38 +306,43 @@ export default function ApplicationPage() {
 
                 <div className="space-y-2">
                   <Label
-                    htmlFor="loanAmount"
+                    htmlFor="financingAmount"
                     className="font-paragraph text-base text-dark-brown"
                   >
-                    {t("loanDetails.loanAmount")} *
+                    {t("financingDetails.financingAmount")} *
                   </Label>
                   <Input
-                    id="loanAmount"
-                    name="loanAmount"
+                    id="financingAmount"
+                    name="financingAmount"
                     type="number"
-                    value={formData.loanAmount}
+                    value={formData.financingAmount}
                     onChange={handleInputChange}
                     required
                     className="font-paragraph"
+                    placeholder={t(
+                      "financingDetails.financingAmountPlaceholder",
+                    )}
                   />
                 </div>
 
                 <div className="space-y-2 md:col-span-2">
                   <Label
-                    htmlFor="loanPurpose"
+                    htmlFor="financingPurpose"
                     className="font-paragraph text-base text-dark-brown"
                   >
-                    {t("loanDetails.loanPurpose")} *
+                    {t("financingDetails.financingPurpose")} *
                   </Label>
                   <Textarea
-                    id="loanPurpose"
-                    name="loanPurpose"
-                    value={formData.loanPurpose}
+                    id="financingPurpose"
+                    name="financingPurpose"
+                    value={formData.financingPurpose}
                     onChange={handleInputChange}
                     required
                     rows={3}
                     className="font-paragraph"
-                    placeholder={t("loanDetails.loanPurposePlaceholder")}
+                    placeholder={t(
+                      "financingDetails.financingPurposePlaceholder",
+                    )}
                   />
                 </div>
 
@@ -334,7 +351,7 @@ export default function ApplicationPage() {
                     htmlFor="scheduleType"
                     className="font-paragraph text-base text-dark-brown"
                   >
-                    {t("loanDetails.scheduleType")} *
+                    {t("financingDetails.scheduleType")} *
                   </Label>
                   <Select
                     value={formData.scheduleType}
@@ -343,15 +360,17 @@ export default function ApplicationPage() {
                   >
                     <SelectTrigger className="font-paragraph">
                       <SelectValue
-                        placeholder={t("loanDetails.scheduleTypePlaceholder")}
+                        placeholder={t(
+                          "financingDetails.scheduleTypePlaceholder",
+                        )}
                       />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="annuity" className="font-paragraph">
-                        {t("loanDetails.annuity")}
+                        {t("financingDetails.annuity")}
                       </SelectItem>
                       <SelectItem value="bullet" className="font-paragraph">
-                        {t("loanDetails.bullet")}
+                        {t("financingDetails.bullet")}
                       </SelectItem>
                     </SelectContent>
                   </Select>
@@ -362,7 +381,7 @@ export default function ApplicationPage() {
                     htmlFor="loanPeriod"
                     className="font-paragraph text-base text-dark-brown"
                   >
-                    {t("loanDetails.loanPeriod")} *
+                    {t("financingDetails.loanPeriod")} *
                   </Label>
                   <Input
                     id="loanPeriod"
@@ -372,48 +391,29 @@ export default function ApplicationPage() {
                     onChange={handleInputChange}
                     required
                     className="font-paragraph"
-                    placeholder={t("loanDetails.loanPeriodPlaceholder")}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="gracePeriodDuration"
-                    className="font-paragraph text-base text-dark-brown"
-                  >
-                    {t("loanDetails.gracePeriod")} *
-                  </Label>
-                  <Input
-                    id="gracePeriodDuration"
-                    name="gracePeriodDuration"
-                    type="number"
-                    value={formData.gracePeriodDuration}
-                    onChange={handleInputChange}
-                    required
-                    className="font-paragraph"
-                    placeholder={t("loanDetails.gracePeriodPlaceholder")}
+                    placeholder={t("financingDetails.loanPeriodPlaceholder")}
                   />
                 </div>
               </div>
             </div>
 
-            {/* 2. Company Information */}
+            {/* 2. Applicant Information */}
             <div>
               <h2 className="font-heading text-3xl text-dark-brown mb-6">
-                {t("companyInformation.heading")}
+                {t("applicantInformation.heading")}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label
-                    htmlFor="companyName"
+                    htmlFor="legalEntityName"
                     className="font-paragraph text-base text-dark-brown"
                   >
-                    {t("companyInformation.companyName")} *
+                    {t("applicantInformation.legalEntityName")} *
                   </Label>
                   <Input
-                    id="companyName"
-                    name="companyName"
-                    value={formData.companyName}
+                    id="legalEntityName"
+                    name="legalEntityName"
+                    value={formData.legalEntityName}
                     onChange={handleInputChange}
                     required
                     className="font-paragraph"
@@ -424,7 +424,7 @@ export default function ApplicationPage() {
                     htmlFor="registrationNumber"
                     className="font-paragraph text-base text-dark-brown"
                   >
-                    {t("companyInformation.registrationNumber")} *
+                    {t("applicantInformation.registrationNumber")} *
                   </Label>
                   <Input
                     id="registrationNumber"
@@ -435,28 +435,12 @@ export default function ApplicationPage() {
                     className="font-paragraph"
                   />
                 </div>
-                <div className="space-y-2 md:col-span-2">
-                  <Label
-                    htmlFor="registrationAddress"
-                    className="font-paragraph text-base text-dark-brown"
-                  >
-                    {t("companyInformation.registrationAddress")} *
-                  </Label>
-                  <Input
-                    id="registrationAddress"
-                    name="registrationAddress"
-                    value={formData.registrationAddress}
-                    onChange={handleInputChange}
-                    required
-                    className="font-paragraph"
-                  />
-                </div>
                 <div className="space-y-2">
                   <Label
                     htmlFor="communicationLanguage"
                     className="font-paragraph text-base text-dark-brown"
                   >
-                    {t("companyInformation.communicationLanguage")} *
+                    {t("applicantInformation.communicationLanguage")} *
                   </Label>
                   <Select
                     value={formData.communicationLanguage}
@@ -468,62 +452,34 @@ export default function ApplicationPage() {
                     <SelectTrigger className="font-paragraph">
                       <SelectValue
                         placeholder={t(
-                          "companyInformation.communicationLanguagePlaceholder",
+                          "applicantInformation.communicationLanguagePlaceholder",
                         )}
                       />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="estonian" className="font-paragraph">
-                        {t("companyInformation.estonian")}
+                        {t("applicantInformation.estonian")}
                       </SelectItem>
                       <SelectItem value="english" className="font-paragraph">
-                        {t("companyInformation.english")}
+                        {t("applicantInformation.english")}
                       </SelectItem>
                       <SelectItem value="russian" className="font-paragraph">
-                        {t("companyInformation.russian")}
+                        {t("applicantInformation.russian")}
                       </SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
                 <div className="space-y-2">
                   <Label
-                    htmlFor="taxResidency"
+                    htmlFor="contactPersonName"
                     className="font-paragraph text-base text-dark-brown"
                   >
-                    {t("companyInformation.taxResidency")} *
+                    {t("applicantInformation.contactPersonName")} *
                   </Label>
                   <Input
-                    id="taxResidency"
-                    name="taxResidency"
-                    value={formData.taxResidency}
-                    onChange={handleInputChange}
-                    required
-                    className="font-paragraph"
-                    placeholder={t(
-                      "companyInformation.taxResidencyPlaceholder",
-                    )}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* 3. Contact Information */}
-            <div>
-              <h2 className="font-heading text-3xl text-dark-brown mb-6">
-                {t("contactInformation.heading")}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="representativeFullName"
-                    className="font-paragraph text-base text-dark-brown"
-                  >
-                    {t("contactInformation.fullName")} *
-                  </Label>
-                  <Input
-                    id="representativeFullName"
-                    name="representativeFullName"
-                    value={formData.representativeFullName}
+                    id="contactPersonName"
+                    name="contactPersonName"
+                    value={formData.contactPersonName}
                     onChange={handleInputChange}
                     required
                     className="font-paragraph"
@@ -531,32 +487,16 @@ export default function ApplicationPage() {
                 </div>
                 <div className="space-y-2">
                   <Label
-                    htmlFor="representativeIdentificationCode"
+                    htmlFor="phoneNumber"
                     className="font-paragraph text-base text-dark-brown"
                   >
-                    {t("contactInformation.identificationCode")} *
+                    {t("applicantInformation.phoneNumber")} *
                   </Label>
                   <Input
-                    id="representativeIdentificationCode"
-                    name="representativeIdentificationCode"
-                    value={formData.representativeIdentificationCode}
-                    onChange={handleInputChange}
-                    required
-                    className="font-paragraph"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="representativePhone"
-                    className="font-paragraph text-base text-dark-brown"
-                  >
-                    {t("contactInformation.phone")} *
-                  </Label>
-                  <Input
-                    id="representativePhone"
-                    name="representativePhone"
+                    id="phoneNumber"
+                    name="phoneNumber"
                     type="tel"
-                    value={formData.representativePhone}
+                    value={formData.phoneNumber}
                     onChange={handleInputChange}
                     required
                     className="font-paragraph"
@@ -564,146 +504,25 @@ export default function ApplicationPage() {
                 </div>
                 <div className="space-y-2">
                   <Label
-                    htmlFor="representativeEmail"
+                    htmlFor="emailAddress"
                     className="font-paragraph text-base text-dark-brown"
                   >
-                    {t("contactInformation.email")} *
+                    {t("applicantInformation.emailAddress")} *
                   </Label>
                   <Input
-                    id="representativeEmail"
-                    name="representativeEmail"
+                    id="emailAddress"
+                    name="emailAddress"
                     type="email"
-                    value={formData.representativeEmail}
+                    value={formData.emailAddress}
                     onChange={handleInputChange}
                     required
                     className="font-paragraph"
-                  />
-                </div>
-                <div className="space-y-2 md:col-span-2">
-                  <Label
-                    htmlFor="representationType"
-                    className="font-paragraph text-base text-dark-brown"
-                  >
-                    {t("contactInformation.representationType")} *
-                  </Label>
-                  <Select
-                    value={formData.representationType}
-                    onValueChange={(v) =>
-                      handleSelectChange("representationType", v)
-                    }
-                    required
-                  >
-                    <SelectTrigger className="font-paragraph">
-                      <SelectValue
-                        placeholder={t(
-                          "contactInformation.representationTypePlaceholder",
-                        )}
-                      />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="legal" className="font-paragraph">
-                        {t("contactInformation.legalRepresentative")}
-                      </SelectItem>
-                      <SelectItem value="authorized" className="font-paragraph">
-                        {t("contactInformation.authorizedRepresentative")}
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-            </div>
-
-            {/* 4. Beneficiary Information */}
-            <div>
-              <h2 className="font-heading text-3xl text-dark-brown mb-6">
-                {t("beneficiary.heading")}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="beneficiaryFullName"
-                    className="font-paragraph text-base text-dark-brown"
-                  >
-                    {t("beneficiary.fullName")} *
-                  </Label>
-                  <Input
-                    id="beneficiaryFullName"
-                    name="beneficiaryFullName"
-                    value={formData.beneficiaryFullName}
-                    onChange={handleInputChange}
-                    required
-                    className="font-paragraph"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="beneficiaryIdentificationCode"
-                    className="font-paragraph text-base text-dark-brown"
-                  >
-                    {t("beneficiary.identificationCode")} *
-                  </Label>
-                  <Input
-                    id="beneficiaryIdentificationCode"
-                    name="beneficiaryIdentificationCode"
-                    value={formData.beneficiaryIdentificationCode}
-                    onChange={handleInputChange}
-                    required
-                    className="font-paragraph"
-                  />
-                </div>
-                <div className="space-y-2 md:col-span-2">
-                  <Label
-                    htmlFor="beneficiaryCountry"
-                    className="font-paragraph text-base text-dark-brown"
-                  >
-                    {t("beneficiary.country")} *
-                  </Label>
-                  <Input
-                    id="beneficiaryCountry"
-                    name="beneficiaryCountry"
-                    value={formData.beneficiaryCountry}
-                    onChange={handleInputChange}
-                    required
-                    className="font-paragraph"
-                    placeholder={t("beneficiary.countryPlaceholder")}
                   />
                 </div>
               </div>
             </div>
 
-            {/* 5. PEP Questionnaire */}
-            <div>
-              <h2 className="font-heading text-3xl text-dark-brown mb-6">
-                {t("pep.heading")}
-              </h2>
-              <div className="space-y-2">
-                <Label
-                  htmlFor="isPEPRelated"
-                  className="font-paragraph text-base text-dark-brown"
-                >
-                  {t("pep.isPEP")} *
-                </Label>
-                <Select
-                  value={formData.isPEPRelated}
-                  onValueChange={(v) => handleSelectChange("isPEPRelated", v)}
-                  required
-                >
-                  <SelectTrigger className="font-paragraph">
-                    <SelectValue placeholder={t("pep.selectPlaceholder")} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="yes" className="font-paragraph">
-                      {t("pep.yes")}
-                    </SelectItem>
-                    <SelectItem value="no" className="font-paragraph">
-                      {t("pep.no")}
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-
-            {/* 6. Collateral Information */}
+            {/* 3. Collateral Information */}
             <div>
               <h2 className="font-heading text-3xl text-dark-brown mb-6">
                 {t("collateral.heading")}
@@ -862,10 +681,10 @@ export default function ApplicationPage() {
               </Button>
             </div>
 
-            {/* 7. Surety Information (uses collateral.* keys per existing JSON) */}
+            {/* 4. Surety Information */}
             <div>
               <h2 className="font-heading text-3xl text-dark-brown mb-6">
-                {t("collateral.suretyHeading")}
+                {t("surety.heading")}
               </h2>
 
               <div className="space-y-6">
@@ -885,7 +704,7 @@ export default function ApplicationPage() {
                       htmlFor="isRepresentativeSurety"
                       className="font-paragraph text-base text-dark-brown cursor-pointer"
                     >
-                      {t("collateral.representativeIsSurety")}
+                      {t("surety.representativeIsSurety")}
                     </Label>
                   </div>
 
@@ -893,7 +712,7 @@ export default function ApplicationPage() {
                     <div className="border border-dark-brown/20 rounded-lg p-6 bg-background space-y-4">
                       <div className="space-y-2">
                         <Label className="font-paragraph text-base text-dark-brown">
-                          {t("collateral.suretyIdCode")} *
+                          {t("surety.representativeIdCode")} *
                         </Label>
                         <Input
                           value={representativeSurety.identificationCode}
@@ -904,7 +723,7 @@ export default function ApplicationPage() {
                             })
                           }
                           className="font-paragraph"
-                          placeholder={t("collateral.suretyIdCodePlaceholder")}
+                          placeholder={t("surety.idCodePlaceholder")}
                         />
                       </div>
                     </div>
@@ -926,7 +745,7 @@ export default function ApplicationPage() {
                     htmlFor="isOtherPersonSurety"
                     className="font-paragraph text-base text-dark-brown cursor-pointer"
                   >
-                    {t("collateral.otherIsSurety")}
+                    {t("surety.otherIsSurety")}
                   </Label>
                 </div>
 
@@ -935,7 +754,7 @@ export default function ApplicationPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label className="font-paragraph text-base text-dark-brown">
-                          {t("collateral.suretyName")} *
+                          {t("surety.suretyName")} *
                         </Label>
                         <Input
                           value={otherSuretyPerson.name}
@@ -946,12 +765,12 @@ export default function ApplicationPage() {
                             })
                           }
                           className="font-paragraph"
-                          placeholder={t("collateral.suretyNamePlaceholder")}
+                          placeholder={t("surety.suretyNamePlaceholder")}
                         />
                       </div>
                       <div className="space-y-2">
                         <Label className="font-paragraph text-base text-dark-brown">
-                          {t("collateral.suretyIdCode")} *
+                          {t("surety.suretyIdCode")} *
                         </Label>
                         <Input
                           value={otherSuretyPerson.identificationCode}
@@ -962,7 +781,7 @@ export default function ApplicationPage() {
                             })
                           }
                           className="font-paragraph"
-                          placeholder={t("collateral.suretyIdCodePlaceholder")}
+                          placeholder={t("surety.idCodePlaceholder")}
                         />
                       </div>
                     </div>

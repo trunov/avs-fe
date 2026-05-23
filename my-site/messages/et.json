@@ -10,11 +10,13 @@
   },
   "HomePage": {
     "hero": {
-      "titleLine1": "konkurentsivõimelised tingimused.",
-      "titleLine2": "kohandatud finantseerimine.",
-      "titleLine3": "personaalne teenindus.",
-      "subtitle": "tagatud finantseerimine eestis registreeritud juriidilistele isikutele.",
-      "description": "laenud ja krediidiliinid aastaintressiga alates 9,5% pluss 6 kuu euribor, kohandatud finantseerimisstruktuurid, lihtne taotlusprotsess ja personaalse kliendihalduri tugi.",
+      "title": "tagatud laenud ja krediidiliinid juriidilistele isikutele.",
+      "benefits": {
+        "interest": "aastaintress alates 9,5% pluss 6 kuu euribor",
+        "ltv": "finantseerimine kuni 80% tagatise väärtusest",
+        "term": "tähtaeg kuni 120 kuud",
+        "purposes": "sobib refinantseerimiseks, kinnisvara edasimüügiks, investeeringuteks, käibekapitaliks ja muudeks ettevõtluslikeks eesmärkideks"
+      },
       "applyCta": "esita taotlus"
     },
     "whyChoose": {
@@ -73,78 +75,44 @@
   "ApplicationPage": {
     "hero": {
       "title": "finantseerimistaotlus",
-      "subtitle": "täida alljärgnev vorm finantseerimise taotlemiseks. meie meeskond vaatab sinu taotluse üle ja võtab ühendust kahe tööpäeva jooksul."
+      "subtitle": "täida alljärgnev vorm finantseerimise taotlemiseks"
     },
-    "success": {
-      "heading": "taotlus edukalt esitatud",
-      "body": "täname, et valisid avs finance. oleme sinu taotluse kätte saanud ja meie meeskond vaatab selle peagi üle. saad vastuse 5-7 tööpäeva jooksul.",
-      "redirecting": "suunamine avalehele..."
-    },
-    "errors": {
-      "apiError": "API viga: {status}",
-      "generic": "Vormi esitamisel tekkis viga. Palun proovi uuesti."
-    },
-    "loanDetails": {
-      "heading": "üldised andmed",
-      "loanType": "finantseerimise liik",
-      "loanTypePlaceholder": "vali laenu liik",
+    "financingDetails": {
+      "heading": "finantseerimise andmed",
+      "financingType": "finantseerimise liik",
+      "financingTypePlaceholder": "vali finantseerimise liik",
       "corporateLoan": "ärilaen",
       "creditLine": "krediidiliin",
-      "loanAmount": "finantseerimise summa (eur)",
-      "loanPurpose": "finantseerimise eesmärk",
-      "loanPurposePlaceholder": "palun kirjelda laenu eesmärki...",
+      "financingAmount": "finantseerimise summa (EUR)",
+      "financingAmountPlaceholder": "soovitud finantseerimise kogusumma",
+      "financingPurpose": "finantseerimise eesmärk",
+      "financingPurposePlaceholder": "palun kirjelda finantseerimise eesmärki...",
       "scheduleType": "graafiku liik",
       "scheduleTypePlaceholder": "vali graafiku liik",
       "annuity": "annuiteet",
       "bullet": "bullet",
       "loanPeriod": "laenuperiood (kuud)",
-      "loanPeriodPlaceholder": "laenu kogukestus",
-      "gracePeriod": "maksepuhkuse kestus (kuud)",
-      "gracePeriodPlaceholder": "periood, mille jooksul makstakse ainult intressi"
+      "loanPeriodPlaceholder": "laenu kogukestus"
     },
-    "companyInformation": {
-      "heading": "ettevõtte andmed",
-      "companyName": "ettevõtte nimi",
+    "applicantInformation": {
+      "heading": "taotleja andmed",
+      "legalEntityName": "juriidilise isiku nimi",
       "registrationNumber": "registrikood",
-      "registrationAddress": "registreerimisaadress",
-      "communicationLanguage": "suhtluskeel",
+      "communicationLanguage": "eelistatud suhtluskeel",
       "communicationLanguagePlaceholder": "vali keel",
       "estonian": "eesti",
       "english": "inglise",
       "russian": "vene",
-      "taxResidency": "maksuresidentsus",
-      "taxResidencyPlaceholder": "maksuresidentsuse riik"
-    },
-    "contactInformation": {
-      "heading": "kontaktandmed",
-      "fullName": "esindaja täisnimi",
-      "email": "e-posti aadress",
-      "identificationCode": "isikukood",
-      "phone": "telefoninumber",
-      "representationType": "esindamise liik",
-      "representationTypePlaceholder": "vali esindamise liik",
-      "legalRepresentative": "seaduslik esindaja",
-      "authorizedRepresentative": "volitatud esindaja"
-    },
-    "beneficiary": {
-      "heading": "tegeliku kasusaaja andmed",
-      "identificationCode": "isikukood",
-      "fullName": "täisnimi",
-      "country": "elukohariik",
-      "countryPlaceholder": "elukohariik"
-    },
-    "pep": {
-      "heading": "küsimustik",
-      "isPEP": "kas mõni ettevõttega seotud isik on pep (riikliku taustaga isik)?",
-      "selectPlaceholder": "vali variant",
-      "yes": "jah",
-      "no": "ei"
+      "contactPersonName": "kontaktisik",
+      "phoneNumber": "telefoninumber",
+      "emailAddress": "e-posti aadress"
     },
     "collateral": {
-      "heading": "tagatis",
+      "heading": "tagatise andmed",
       "type": "tagatise liik",
       "mortgage": "hüpoteek",
       "other": "muu",
+      "remove": "eemalda tagatis",
       "propertyType": "kinnisvara liik",
       "propertyTypePlaceholder": "vali kinnisvara liik",
       "apartment": "korter",
@@ -155,20 +123,34 @@
       "addressPlaceholder": "sisesta kinnisvara aadress",
       "description": "kirjeldus",
       "descriptionPlaceholder": "kirjelda tagatist",
-      "addCollateral": "+ lisa tagatis",
-      "remove": "eemalda tagatis",
-      "suretyHeading": "käenduse andmed",
-      "representativeIsSurety": "ettevõtte esindaja on nõus olema isiklikuks käendajaks",
-      "otherIsSurety": "teine ettevõttega seotud isik on nõus olema käendajaks",
+      "addCollateral": "+ lisa tagatis"
+    },
+    "surety": {
+      "heading": "käenduse andmed (valikuline)",
+      "representativeIsSurety": "kontaktisik on nõus olema isiklikuks käendajaks",
+      "representativeIdCode": "kontaktisiku isikukood",
+      "otherIsSurety": "teine isik on nõus olema käendajaks",
       "suretyName": "käendaja nimi",
       "suretyNamePlaceholder": "täisnimi",
       "suretyIdCode": "isikukood",
-      "suretyIdCodePlaceholder": "isikukood"
+      "idCodePlaceholder": "isikukood"
     },
     "submit": {
       "submit": "esita taotlus",
       "submitting": "taotluse esitamine...",
       "requiredHint": "* kohustuslikud väljad."
+    },
+    "success": {
+      "heading": "taotlus edukalt esitatud",
+      "body": "täname, et valisid avs finance. oleme sinu taotluse kätte saanud ning meie meeskond vaatab selle üle ja võtab sinuga peagi ühendust.",
+      "redirecting": "suunamine avalehele..."
+    },
+    "errors": {
+      "collateralRequired": "Vähemalt üks tagatis tuleb esitada.",
+      "mortgageFieldsRequired": "Hüpoteektagatiste puhul on kinnisvara liik ja aadress kohustuslikud.",
+      "otherDescriptionRequired": "Muude tagatiste puhul on kirjeldus kohustuslik.",
+      "apiError": "API viga: {status}",
+      "generic": "Vormi esitamisel tekkis viga. Palun proovi uuesti."
     }
   },
   "ContactsPage": {
@@ -196,7 +178,11 @@
       "emailPlaceholder": "sinu e-post",
       "message": "sõnum",
       "messagePlaceholder": "sinu sõnum",
-      "submit": "saada sõnum"
+      "submit": "saada sõnum",
+      "submitting": "sõnumi saatmine...",
+      "successHeading": "Täname ühenduse võtmise eest!",
+      "successBody": "Saime sinu sõnumi kätte ja võtame sinuga ühendust 1–2 tööpäeva jooksul.",
+      "sendAnother": "Saada veel üks sõnum"
     },
     "map": {
       "heading": "leia meid"

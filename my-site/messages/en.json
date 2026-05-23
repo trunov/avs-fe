@@ -10,11 +10,13 @@
   },
   "HomePage": {
     "hero": {
-      "titleLine1": "competitive terms.",
-      "titleLine2": "tailored financing.",
-      "titleLine3": "personal service.",
-      "subtitle": "secured financing for legal entities registered in estonia.",
-      "description": "loans and credit lines with annual interest from 9,5% plus 6-month euribor, tailored financing structures, a straightforward application process and support from a dedicated client manager.",
+      "title": "secured loans and credit lines for legal entities.",
+      "benefits": {
+        "interest": "annual interest from 9,5% plus 6-month euribor",
+        "ltv": "financing of up to 80% of collateral value",
+        "term": "terms of up to 120 months",
+        "purposes": "suitable for refinancing, flipping, investment, working capital and other business purposes"
+      },
       "applyCta": "apply now"
     },
     "whyChoose": {
@@ -69,106 +71,85 @@
     },
     "copyright": "© {year} avs finance. all rights reserved."
   },
-
   "ApplicationPage": {
     "hero": {
-      "title": "financing application",
-      "subtitle": "complete the form below to apply for financing. our team will review your application and contact you within two business days."
+      "title": "Financing application",
+      "subtitle": "Complete the form below to apply for financing"
     },
-    "success": {
-      "heading": "application submitted successfully",
-      "body": "thank you for choosing avs finance. we have received your application and our team will review it shortly. you will receive a response within 5-7 business days.",
-      "redirecting": "redirecting to homepage..."
+    "financingDetails": {
+      "heading": "Financing details",
+      "financingType": "Financing type",
+      "financingTypePlaceholder": "Select financing type",
+      "corporateLoan": "Corporate loan",
+      "creditLine": "Credit line",
+      "financingAmount": "Financing amount (EUR)",
+      "financingAmountPlaceholder": "Total desired amount of financing",
+      "financingPurpose": "Purpose of the financing",
+      "financingPurposePlaceholder": "Please describe the purpose of the financing...",
+      "scheduleType": "Schedule type",
+      "scheduleTypePlaceholder": "Select schedule type",
+      "annuity": "Annuity",
+      "bullet": "Bullet",
+      "loanPeriod": "Loan period (months)",
+      "loanPeriodPlaceholder": "Total duration of the loan"
     },
-    "errors": {
-      "apiError": "API error: {status}",
-      "generic": "An error occurred while submitting the form. Please try again."
-    },
-    "loanDetails": {
-      "heading": "general details",
-      "loanType": "financing type",
-      "loanTypePlaceholder": "select loan type",
-      "corporateLoan": "corporate loan",
-      "creditLine": "credit line",
-      "loanAmount": "financing amount (eur)",
-      "loanPurpose": "purpose of the financing",
-      "loanPurposePlaceholder": "please describe the purpose of the loan...",
-      "scheduleType": "schedule type",
-      "scheduleTypePlaceholder": "select schedule type",
-      "annuity": "annuity",
-      "bullet": "bullet",
-      "loanPeriod": "loan period (months)",
-      "loanPeriodPlaceholder": "total duration of the loan",
-      "gracePeriod": "grace period duration (months)",
-      "gracePeriodPlaceholder": "period where only interest is paid"
-    },
-    "companyInformation": {
-      "heading": "company information",
-      "companyName": "company name",
-      "registrationNumber": "registration number",
-      "registrationAddress": "registration address",
-      "communicationLanguage": "communication language",
-      "communicationLanguagePlaceholder": "select language",
-      "estonian": "estonian",
-      "english": "english",
-      "russian": "russian",
-      "taxResidency": "tax residency",
-      "taxResidencyPlaceholder": "country of tax residency"
-    },
-    "contactInformation": {
-      "heading": "contact information",
-      "fullName": "full name of representative",
-      "email": "email address",
-      "identificationCode": "personal identification code",
-      "phone": "phone number",
-      "representationType": "representation type",
-      "representationTypePlaceholder": "select representation type",
-      "legalRepresentative": "legal representative",
-      "authorizedRepresentative": "authorized representative"
-    },
-    "beneficiary": {
-      "heading": "beneficiary information",
-      "identificationCode": "personal identification code",
-      "fullName": "full name",
-      "country": "country of residence",
-      "countryPlaceholder": "country of residence"
-    },
-    "pep": {
-      "heading": "questionnaire",
-      "isPEP": "is any person related to the company a pep (politically exposed person)?",
-      "selectPlaceholder": "select an option",
-      "yes": "yes",
-      "no": "no"
+    "applicantInformation": {
+      "heading": "Applicant information",
+      "legalEntityName": "Name of the legal entity",
+      "registrationNumber": "Registry code",
+      "communicationLanguage": "Preferred communication language",
+      "communicationLanguagePlaceholder": "Select language",
+      "estonian": "Estonian",
+      "english": "English",
+      "russian": "Russian",
+      "contactPersonName": "Contact person",
+      "phoneNumber": "Phone number",
+      "emailAddress": "Email address"
     },
     "collateral": {
-      "heading": "collateral",
-      "type": "collateral type",
-      "mortgage": "mortgage",
-      "other": "other",
-      "propertyType": "property type",
-      "propertyTypePlaceholder": "select property type",
-      "apartment": "apartment",
-      "building": "building",
-      "land": "land",
-      "otherProperty": "other",
-      "address": "address",
-      "addressPlaceholder": "enter property address",
-      "description": "description",
-      "descriptionPlaceholder": "describe the collateral",
-      "addCollateral": "+ add collateral",
-      "remove": "remove collateral",
-      "suretyHeading": "surety information",
-      "representativeIsSurety": "the representative of the company is willing to act as a surety personally",
-      "otherIsSurety": "another person related to the company is willing to act as a surety",
-      "suretyName": "name of surety person",
-      "suretyNamePlaceholder": "full name",
-      "suretyIdCode": "identification code",
-      "suretyIdCodePlaceholder": "identification code"
+      "heading": "Collateral information",
+      "type": "Collateral type",
+      "mortgage": "Mortgage",
+      "other": "Other",
+      "remove": "Remove collateral",
+      "propertyType": "Property type",
+      "propertyTypePlaceholder": "Select property type",
+      "apartment": "Apartment",
+      "building": "Building",
+      "land": "Land",
+      "otherProperty": "Other",
+      "address": "Address",
+      "addressPlaceholder": "Enter property address",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe the collateral",
+      "addCollateral": "+ Add collateral"
+    },
+    "surety": {
+      "heading": "Surety information (optional)",
+      "representativeIsSurety": "The contact person is willing to act as a surety personally",
+      "representativeIdCode": "Identification code of the contact person",
+      "otherIsSurety": "Another person is willing to act as a surety",
+      "suretyName": "Name of surety person",
+      "suretyNamePlaceholder": "Full name",
+      "suretyIdCode": "Identification code",
+      "idCodePlaceholder": "Identification code"
     },
     "submit": {
-      "submit": "submit application",
-      "submitting": "submitting application...",
-      "requiredHint": "* required fields."
+      "submit": "Submit application",
+      "submitting": "Submitting application...",
+      "requiredHint": "* Required fields."
+    },
+    "success": {
+      "heading": "Application submitted successfully",
+      "body": "Thank you for choosing AVS Finance. We have received your application and our team will review it and contact you shortly.",
+      "redirecting": "Redirecting to homepage..."
+    },
+    "errors": {
+      "collateralRequired": "At least one collateral must be provided.",
+      "mortgageFieldsRequired": "Property type and address are required for mortgage collaterals.",
+      "otherDescriptionRequired": "Description is required for other collaterals.",
+      "apiError": "API error: {status}",
+      "generic": "An error occurred while submitting the form. Please try again."
     }
   },
   "ContactsPage": {
@@ -196,7 +177,11 @@
       "emailPlaceholder": "your email",
       "message": "message",
       "messagePlaceholder": "your message",
-      "submit": "send message"
+      "submit": "send message",
+      "submitting": "submitting application...",
+      "successHeading": "Thank you for reaching out!",
+      "successBody": "We've received your message and will get back to you within 1–2 business days.",
+      "sendAnother": "Send another message"
     },
     "map": {
       "heading": "find us"

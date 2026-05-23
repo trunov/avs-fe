@@ -3,7 +3,14 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { ArrowRight, Users, LineChart, Zap, ArrowUpRight } from "lucide-react";
+import {
+  ArrowRight,
+  Users,
+  LineChart,
+  Zap,
+  ArrowUpRight,
+  CheckCircle,
+} from "lucide-react";
 import { motion, useScroll, useSpring, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import LoanCalculator from "@/components/LoanCalculator";
@@ -54,34 +61,28 @@ export default function HomePage() {
       <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-primary border-b-2 border-dark-brown/10">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-8 lg:px-12 py-20 md:py-24 lg:py-32 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Hero Content - Left */}
             <motion.div
               className="relative flex flex-col justify-center"
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <motion.div
-                className="w-16 h-1 bg-vibrant-yellow rounded-full mb-8"
-                initial={{ width: 0 }}
-                animate={{ width: 64 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              />
-
-              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-secondary mb-8 tracking-tight text-left leading-tight">
-                {t("hero.titleLine1")}
-                <br />
-                <span className="relative inline-block">{t("hero.titleLine2")}</span>
-                <br />
-                {t("hero.titleLine3")}
+              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-secondary mb-12 tracking-tight text-left leading-tight">
+                {t("hero.title")}
               </h1>
-
-              <p className="font-paragraph text-secondary mb-6 text-lg md:text-xl font-normal">
-                {t("hero.subtitle")}
-              </p>
-
-              <p className="font-paragraph text-secondary mb-12 text-lg md:text-xl font-normal leading-relaxed max-w-lg">
-                {t("hero.description")}
-              </p>
+              <div className="mb-12">
+                <ul className="space-y-4">
+                  {["interest", "ltv", "term", "purposes"].map((key) => (
+                    <li key={key} className="flex items-start gap-4">
+                      <CheckCircle className="h-6 w-6 text-vibrant-yellow flex-shrink-0 mt-1" />
+                      <span className="font-paragraph text-secondary text-lg md:text-xl font-normal">
+                        {t(`hero.benefits.${key}`)}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -98,15 +99,16 @@ export default function HomePage() {
               </motion.div>
             </motion.div>
 
+            {/* Hero Visual - Right */}
             <motion.div
               className="relative flex items-center justify-center lg:justify-end h-full"
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="w-full lg:w-auto">
+              <motion.div className="w-full lg:w-auto">
                 <LoanCalculator />
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>

@@ -5,8 +5,10 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { Phone, MapPin, Mail, Globe } from "lucide-react";
+import { Phone, MapPin, Mail, Globe, CheckCircle } from "lucide-react";
 import { teamMembers } from "@/lib/team";
+
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const FadeIn = ({
   children,
@@ -44,6 +46,10 @@ export default function ContactsPage() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -51,11 +57,43 @@ export default function ContactsPage() {
     setContactFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: post to /api/contact when backend is ready
-    console.log("Form submitted:", contactFormData);
-    setContactFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const res = await fetch(`${API_BASE}/api/v1/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: contactFormData.name.trim(),
+          email: contactFormData.email.trim(),
+          message: contactFormData.message.trim(),
+        }),
+      });
+
+      if (!res.ok) {
+        // try to surface the backend error message
+        let detail = "";
+        try {
+          const data = await res.json();
+          detail = data?.error ?? data?.message ?? "";
+        } catch {
+          detail = await res.text().catch(() => "");
+        }
+        throw new Error(detail || `Request failed (${res.status})`);
+      }
+
+      setContactFormData({ name: "", email: "", message: "" });
+      setIsSubmitted(true);
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error ? err.message : t("form.errorGeneric"),
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -132,55 +170,98 @@ export default function ContactsPage() {
               <h3 className="font-heading text-2xl text-dark-brown mb-8 md:text-4xl text-center">
                 {t("form.heading")}
               </h3>
-              <form onSubmit={handleFormSubmit} className="space-y-6">
-                <div>
-                  <label className="block font-paragraph text-sm font-semibold text-dark-brown mb-2">
-                    {t("form.name")}
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={contactFormData.name}
-                    onChange={handleFormChange}
-                    className="w-full px-4 py-3 border-2 border-dark-brown rounded-lg font-paragraph text-dark-brown placeholder-dark-brown-light focus:outline-none focus:border-dark-brown transition-colors"
-                    placeholder={t("form.namePlaceholder")}
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block font-paragraph text-sm font-semibold text-dark-brown mb-2">
-                    {t("form.email")}
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={contactFormData.email}
-                    onChange={handleFormChange}
-                    className="w-full px-4 py-3 border-2 border-dark-brown rounded-lg font-paragraph text-dark-brown placeholder-dark-brown-light focus:outline-none focus:border-dark-brown transition-colors"
-                    placeholder={t("form.emailPlaceholder")}
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block font-paragraph text-sm font-semibold text-dark-brown mb-2">
-                    {t("form.message")}
-                  </label>
-                  <textarea
-                    name="message"
-                    value={contactFormData.message}
-                    onChange={handleFormChange}
-                    className="w-full px-4 py-3 border-2 border-dark-brown rounded-lg font-paragraph text-dark-brown placeholder-dark-brown-light focus:outline-none focus:border-dark-brown transition-colors resize-none h-32"
-                    placeholder={t("form.messagePlaceholder")}
-                    required
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full px-8 py-3 bg-dark-brown text-vibrant-yellow font-paragraph font-bold text-base rounded-lg hover:bg-dark-brown-light transition-all duration-300"
+
+              {isSubmitted ? (
+                <motion.div
+                  className="text-center py-12"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6 }}
                 >
-                  {t("form.submit")}
-                </button>
-              </form>
+                  <div className="flex justify-center mb-6">
+                    <div className="w-20 h-20 rounded-full bg-vibrant-yellow/20 flex items-center justify-center">
+                      <CheckCircle className="h-10 w-10 text-vibrant-yellow-dark" />
+                    </div>
+                  </div>
+                  <h4 className="font-heading text-2xl text-dark-brown mb-4">
+                    {t("form.successHeading")}
+                  </h4>
+                  <p className="font-paragraph text-dark-brown-light mb-8">
+                    {t("form.successBody")}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setIsSubmitted(false)}
+                    className="px-8 py-3 bg-dark-brown text-vibrant-yellow font-paragraph font-bold text-base rounded-lg hover:bg-dark-brown-light transition-all duration-300"
+                  >
+                    {t("form.sendAnother")}
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleFormSubmit} className="space-y-6">
+                  <div>
+                    <label className="block font-paragraph text-sm font-semibold text-dark-brown mb-2">
+                      {t("form.name")}
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={contactFormData.name}
+                      onChange={handleFormChange}
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border-2 border-dark-brown rounded-lg font-paragraph text-dark-brown placeholder-dark-brown-light focus:outline-none focus:border-dark-brown transition-colors disabled:opacity-60"
+                      placeholder={t("form.namePlaceholder")}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-paragraph text-sm font-semibold text-dark-brown mb-2">
+                      {t("form.email")}
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={contactFormData.email}
+                      onChange={handleFormChange}
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border-2 border-dark-brown rounded-lg font-paragraph text-dark-brown placeholder-dark-brown-light focus:outline-none focus:border-dark-brown transition-colors disabled:opacity-60"
+                      placeholder={t("form.emailPlaceholder")}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-paragraph text-sm font-semibold text-dark-brown mb-2">
+                      {t("form.message")}
+                    </label>
+                    <textarea
+                      name="message"
+                      value={contactFormData.message}
+                      onChange={handleFormChange}
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border-2 border-dark-brown rounded-lg font-paragraph text-dark-brown placeholder-dark-brown-light focus:outline-none focus:border-dark-brown transition-colors resize-none h-32 disabled:opacity-60"
+                      placeholder={t("form.messagePlaceholder")}
+                      required
+                    />
+                  </div>
+
+                  {submitError && (
+                    <p
+                      role="alert"
+                      className="font-paragraph text-sm text-red-600"
+                    >
+                      {submitError}
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full px-8 py-3 bg-dark-brown text-vibrant-yellow font-paragraph font-bold text-base rounded-lg hover:bg-dark-brown-light transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? t("form.submitting") : t("form.submit")}
+                  </button>
+                </form>
+              )}
             </FadeIn>
 
             <FadeIn delay={0.1}>
