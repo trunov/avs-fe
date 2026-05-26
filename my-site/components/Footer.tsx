@@ -68,12 +68,12 @@ export default function Footer() {
               >
                 {t("resources.apply")}
               </Link>
-              <Link
+              {/* <Link
                 href="/terms-of-service"
                 className="font-paragraph text-base text-vibrant-yellow-light hover:text-vibrant-yellow transition-colors duration-300"
               >
                 {t("resources.terms")}
-              </Link>
+              </Link> */}
             </nav>
           </div>
 

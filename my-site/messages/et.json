@@ -6,16 +6,16 @@
     "contacts": "kontaktid",
     "faq": "faq",
     "apply": "esita taotlus",
-    "language": "Keel"
+    "language": "keel"
   },
   "HomePage": {
     "hero": {
-      "title": "tagatud laenud ja krediidiliinid juriidilistele isikutele.",
+      "title": "tagatisega laenud ja krediidiliinid juriidilistele isikutele.",
       "benefits": {
-        "interest": "aastaintress alates 9,5% pluss 6 kuu euribor",
+        "interest": "aastaintress alates 9% + 6 kuu euribor",
         "ltv": "finantseerimine kuni 80% tagatise väärtusest",
         "term": "tähtaeg kuni 120 kuud",
-        "purposes": "sobib refinantseerimiseks, kinnisvara edasimüügiks, investeeringuteks, käibekapitaliks ja muudeks ettevõtluslikeks eesmärkideks"
+        "purposes": "sobib refinantseerimiseks, flippimiseks, investeeringuteks, käibekapitaliks ja muudeks ettevõtlusega seotud eesmärkideks"
       },
       "applyCta": "esita taotlus"
     },
@@ -23,7 +23,7 @@
       "heading": "miks valida avs",
       "terms": {
         "title": "konkurentsivõimelised tingimused",
-        "description": "aastaintress alates 9,5% pluss 6 kuu euribor, finantseerimine kuni 80% tagatise väärtusest ja paindlikud tagasimaksetingimused."
+        "description": "aastaintress alates 9% + 6 kuu euribor, finantseerimine kuni 80% tagatise väärtusest ja paindlikud tagasimaksetingimused."
       },
       "process": {
         "title": "tõhus protsess",
@@ -31,23 +31,29 @@
       },
       "support": {
         "title": "personaalne tugi",
-        "description": "personaalne kliendihaldur, kes juhib protsessi ja mõistab sinu ettevõtte vajadusi."
+        "description": "sind toetab kliendihaldur, kes aitab protsessi juhtida ja arvestab sinu ettevõtte vajadustega."
       }
     },
     "offers": {
       "heading": "mida avs pakub",
       "loans": {
         "title": "laenud",
-        "description": "laenud juriidilistele isikutele, kes vajavad kapitali refinantseerimiseks, investeeringuteks, kinnisvaraga tagatud projektideks, käibekapitaliks või muudeks ettevõtluslikeks eesmärkideks.",
+        "description": "laenud juriidilistele isikutele, kes vajavad kapitali refinantseerimiseks, investeeringuteks, kinnisvaraga seotud projektideks, käibekapitaliks või muudeks ettevõtlusega seotud eesmärkideks.",
         "cta": "tutvu laenudega",
         "imageAlt": "Laenude finantseerimine"
       },
       "creditLines": {
         "title": "krediidiliinid",
-        "description": "paindlik eelnevalt heaks kiidetud krediit juriidilistele isikutele, kes soovivad rahalisi vahendeid vajaduse korral käepärast hoida. kasuta limiiti korduvalt, võta vaid nii palju kui vajad ja maksa intressi ainult kasutuses oleva summa pealt.",
+        "description": "paindlik eelnevalt heaks kiidetud krediidilimiit juriidilistele isikutele, kes soovivad hoida rahalisi vahendeid vajaduse korral kättesaadavana. kasuta limiiti korduvalt, võta kasutusele vaid vajalik summa ja maksa intressi ainult kasutuses oleva summa pealt.",
         "cta": "tutvu krediidiliinidega",
         "imageAlt": "Krediidiliinide finantseerimine"
       }
+    },
+    "cta": {
+      "heading": "valmis edasi liikuma?",
+      "subheading": "taotle finantseerimist juba täna. meie meeskond aitab leida sinu ettevõttele sobiva lahenduse.",
+      "applyButton": "esita taotlus",
+      "contactButton": "võta ühendust"
     }
   },
   "Footer": {
@@ -59,10 +65,10 @@
       "creditLines": "krediidiliinid"
     },
     "resources": {
-      "heading": "ressursid",
+      "heading": "kasulikku",
       "priceList": "hinnakiri",
       "faq": "kkk",
-      "apply": "esita finantseerimistaotlus",
+      "apply": "taotle finantseerimist",
       "terms": "kasutustingimused"
     },
     "contact": {
@@ -74,25 +80,25 @@
 
   "ApplicationPage": {
     "hero": {
-      "title": "finantseerimistaotlus",
+      "title": "finantseerimise taotlemine",
       "subtitle": "täida alljärgnev vorm finantseerimise taotlemiseks"
     },
     "financingDetails": {
       "heading": "finantseerimise andmed",
-      "financingType": "finantseerimise liik",
-      "financingTypePlaceholder": "vali finantseerimise liik",
+      "financingType": "krediidi liik",
+      "financingTypePlaceholder": "vali krediidi liik",
       "corporateLoan": "ärilaen",
       "creditLine": "krediidiliin",
-      "financingAmount": "finantseerimise summa (EUR)",
-      "financingAmountPlaceholder": "soovitud finantseerimise kogusumma",
-      "financingPurpose": "finantseerimise eesmärk",
-      "financingPurposePlaceholder": "palun kirjelda finantseerimise eesmärki...",
+      "financingAmount": "krediidi summa (euro)",
+      "financingAmountPlaceholder": "soovitud krediidi kogusumma",
+      "financingPurpose": "krediidi eesmärk",
+      "financingPurposePlaceholder": "palun kirjelda krediidi eesmärki...",
       "scheduleType": "graafiku liik",
       "scheduleTypePlaceholder": "vali graafiku liik",
       "annuity": "annuiteet",
       "bullet": "bullet",
-      "loanPeriod": "laenuperiood (kuud)",
-      "loanPeriodPlaceholder": "laenu kogukestus"
+      "loanPeriod": "laenu tähtaeg (kuud)",
+      "loanPeriodPlaceholder": "laenu tähtaeg kuudes"
     },
     "applicantInformation": {
       "heading": "taotleja andmed",
@@ -103,7 +109,7 @@
       "estonian": "eesti",
       "english": "inglise",
       "russian": "vene",
-      "contactPersonName": "kontaktisik",
+      "contactPersonName": "taotleja kontaktisik",
       "phoneNumber": "telefoninumber",
       "emailAddress": "e-posti aadress"
     },
@@ -132,8 +138,8 @@
       "otherIsSurety": "teine isik on nõus olema käendajaks",
       "suretyName": "käendaja nimi",
       "suretyNamePlaceholder": "täisnimi",
-      "suretyIdCode": "isikukood",
-      "idCodePlaceholder": "isikukood"
+      "suretyIdCode": "isiku- või registrikood",
+      "idCodePlaceholder": "isiku- või registrikood"
     },
     "submit": {
       "submit": "esita taotlus",
@@ -147,22 +153,22 @@
     },
     "errors": {
       "collateralRequired": "Vähemalt üks tagatis tuleb esitada.",
-      "mortgageFieldsRequired": "Hüpoteektagatiste puhul on kinnisvara liik ja aadress kohustuslikud.",
-      "otherDescriptionRequired": "Muude tagatiste puhul on kirjeldus kohustuslik.",
+      "mortgageFieldsRequired": "hüpoteegi puhul on kinnisvara liik ja aadress kohustuslikud.",
+      "otherDescriptionRequired": "muude tagatiste puhul on kirjeldus kohustuslik.",
       "apiError": "API viga: {status}",
-      "generic": "Vormi esitamisel tekkis viga. Palun proovi uuesti."
+      "generic": "vormi esitamisel tekkis viga. palun proovi uuesti."
     }
   },
   "ContactsPage": {
     "support": {
       "heading": "klienditugi",
-      "subheading": "esita küsimusi või küsi täiendavat teavet meie teenuste kohta",
+      "subheading": "küsi lisainfot meie teenuste kohta või võta meiega muul põhjusel ühendust",
       "phone": {
-        "title": "tugi telefoni teel",
+        "title": "võta ühendust telefoni teel",
         "hours": "e–r 9:00–18:00, l 10:00–15:00"
       },
       "office": {
-        "title": "tugi kontoris",
+        "title": "tule kontorisse",
         "hours": "e–r 10:00–16:00",
         "address": "kentmanni tn 6, 10166 tallinn"
       },
@@ -180,9 +186,9 @@
       "messagePlaceholder": "sinu sõnum",
       "submit": "saada sõnum",
       "submitting": "sõnumi saatmine...",
-      "successHeading": "Täname ühenduse võtmise eest!",
-      "successBody": "Saime sinu sõnumi kätte ja võtame sinuga ühendust 1–2 tööpäeva jooksul.",
-      "sendAnother": "Saada veel üks sõnum"
+      "successHeading": "täname ühenduse võtmise eest!",
+      "successBody": "saime sinu sõnumi kätte ja võtame sinuga peagi ühendust.",
+      "sendAnother": "saada veel üks sõnum"
     },
     "map": {
       "heading": "leia meid"
@@ -191,40 +197,44 @@
       "heading": "ettevõtte andmed",
       "subheading": "avs finance oü ametlik teave ja andmed",
       "registryCode": "registrikood",
-      "vatCode": "kmkr number",
+      "vatCode": "käibemaksukohustuslase number",
       "licenceNumber": "tegevusloa number",
-      "address": "registreeritud aadress",
+      "address": "registrijärgne aadress",
       "addressValue": "kentmanni tn 6, 10116 tallinn",
       "bankAccounts": "pangakontod",
       "swedbank": "swedbank",
       "coopPank": "coop pank"
     },
     "team": {
-      "heading": "tutvu meie meeskonnaga",
+      "heading": "tutvu meie juhtkonnaga",
       "noImage": "Pilt puudub",
       "socialMedia": "Sotsiaalmeedia",
       "empty": "Meeskonnaliikmeid ei leitud"
     },
     "cta": {
       "heading": "valmis edasi liikuma?",
-      "subheading": "alusta meie finantseerimislahendustega juba täna. meie meeskond on valmis aitama sul leida sinu ettevõttele parima lahenduse.",
+      "subheading": "taotle finantseerimist juba täna. meie meeskond aitab leida sinu ettevõttele sobiva lahenduse.",
       "button": "esita taotlus"
     }
   },
   "TeamMembers": {
+    "name": {
+      "personOne": "Aleksandr Šapovalov",
+      "personTwo": "Evelin Metslov"
+    },
     "roles": {
-      "ceo": "Juhatuse esimees",
-      "headOfCredit": "Krediidijuht"
+      "ceo": "juhatuse esimees",
+      "headOfCredit": "juhatuse liige"
     },
     "bios": {
-      "personOne": "Esimese isiku biograafia. Asenda tegeliku biograafiaga.",
-      "personTwo": "Teise isiku biograafia. Asenda tegeliku biograafiaga."
+      "personOne": "Aleksandr Šapovalov on Eestis tegutsev advokaat, kellel on kogemus õiguse, finantssektori, hotellinduse ja kinnisvara valdkonnas.\n\nAleksandr on lõpetanud Tallinna Prantsuse Lütseumi. 2020. aastal lõpetas ta Tartu Ülikooli õigusteaduse eriala ning 2022. aastal omandas samas õigusteaduse magistrikraadi. 2024. aastal lõpetas ta Cardiffi Ülikoolis Inglise õiguse diplomõppe, mis on võrdsustatud bakalaureuseõppega.\n\nAleksandr töötab advokaadibüroos Sorainen ning on varasemalt töötanud Londonis rahvusvahelises advokaadibüroos CMS. Varasemalt juhtis ta erinevaid hotellinduse ja kinnisvara valdkonna ettevõtteid Eestis.",
+      "personTwo": "Evelin Metslov on lõpetanud Tallinna Prantsuse Lütseumi ning omandanud 2020. aastal EBSis bakalaureusekraadi rahvusvahelise ärijuhtimise erialal.\n\nEvelinil on kogemus konsultatsiooni-, kinnisvara- ning rõivatootmise ja -müügi valdkonnas, kus ta on varasemalt juhtinud mitmeid ettevõtteid."
     }
   },
   "FAQPage": {
     "hero": {
       "title": "korduma kippuvad küsimused",
-      "subtitle": "leia allpool vastused levinud küsimustele."
+      "subtitle": "leia vastused levinumatele küsimustele"
     },
     "categories": {
       "all": "kõik küsimused",
@@ -237,7 +247,7 @@
     },
     "cta": {
       "heading": "ei leidnud vastust?",
-      "subheading": "meie klienditoe meeskond on valmis aitama. võta meiega ükskõik milliste küsimustega ühendust.",
+      "subheading": "meie klienditugi aitab sind hea meelega. võta meiega ühendust, kui sul on täiendavaid küsimusi.",
       "button": "võta ühendust"
     }
   },
@@ -245,14 +255,14 @@
     "hero": {
       "titleMain": "laenud.",
       "titleAccent": "kapital järgmiseks sammuks.",
-      "subtitle": "lihtsad laenud ettevõtetele, kes vajavad finantseerimist konkreetseks eesmärgiks.",
-      "description": "kasuta seda refinantseerimiseks, investeeringuteks, kinnisvaraprojektiks või muuks äriliseks vajaduseks, tingimustega, mis on kohandatud sinu plaanide järgi.",
+      "subtitle": "selged laenulahendused juriidilistele isikutele, kes vajavad finantseerimist konkreetseks eesmärgiks.",
+      "description": "kasuta laenu refinantseerimiseks, investeeringuteks, kinnisvaraprojektiks või muuks ettevõtlusega seotud vajaduseks.",
       "cta": "esita taotlus",
       "imageAlt": "vee kohale ehitatav sild"
     },
     "overview": {
       "heading": "laenu ülevaade",
-      "subheading": "läbipaistvad tingimused sinu ettevõtte kasvu toetamiseks",
+      "subheading": "selged tingimused, mis aitavad toetada sinu ettevõtte kasvu",
       "terms": {
         "applicant": {
           "label": "taotleja",
@@ -264,19 +274,19 @@
         },
         "ltv": {
           "label": "ltv",
-          "value": "kuni 80% tagatise väärtusest"
+          "value": "laenusumma kuni 80% tagatise väärtusest"
         },
         "loanTerm": {
-          "label": "laenutähtaeg",
+          "label": "laenu tähtaeg",
           "value": "kuni 120 kuud"
         },
         "gracePeriod": {
           "label": "maksepuhkus",
-          "value": "valikuline, kuni 12 kuud"
+          "value": "vajadusel kuni 12 kuud"
         },
         "paymentSchedule": {
           "label": "maksegraafik",
-          "value": "annuiteet- või bullet-graafik"
+          "value": "annuiteetgraafik või bullet-graafik"
         },
         "collateral": {
           "label": "tagatis",
@@ -284,7 +294,7 @@
         },
         "interestRate": {
           "label": "intressimäär",
-          "value": "alates 9,5% aastas pluss 6 kuu euribor, arvestatuna laenu tagasimaksmata jäägi pealt"
+          "value": "alates 9% aastas + 6 kuu euribor, arvestatuna laenujäägilt"
         },
         "originationFee": {
           "label": "lepingutasu",
@@ -297,35 +307,35 @@
       },
       "bullet": {
         "title": "bullet-graafik",
-        "description": "ainult intressimaksed laenuperioodi jooksul, kogu põhiosa makstakse tagasi tähtaja lõpus."
+        "description": "laenuperioodi jooksul tasutakse üksnes intressi ning kogu laenu põhiosa makstakse tagasi tähtaja lõpus."
       }
     },
     "process": {
       "heading": "laenu taotlemise protsess",
-      "subheading": "lihtsad ja arusaadavad sammud finantseerimise saamiseks",
-      "step1": "esita taotlusvorm.",
-      "step2": "vaatame teabe üle ja võime sinuga täpsustuste osas ühendust võtta. kui teave on piisav, püüame anda indikatiivse pakkumise 48 tööajatunni jooksul.",
-      "step3": "kui tingimused sobivad, viime läbi vajalikud kontrollid ja koostame laenu- ning tagatisdokumendid.",
-      "step4": "kui dokumendid on allkirjastatud ja kõik väljamaksetingimused täidetud, makstakse laen välja."
+      "subheading": "lihtsad ja selged sammud finantseerimise saamiseks",
+      "step1": "esita taotlus.",
+      "step2": "vaatame esitatud info üle ja võime vajaduse korral võtta sinuga ühendust täpsustuste küsimiseks. kui info on piisav, esitame indikatiivse pakkumise kahe tööpäeva jooksul.",
+      "step3": "kui finantseerimistingimused sobivad, viime läbi vajalikud kontrollid ning valmistame ette laenu- ja tagatisdokumendid.",
+      "step4": "pärast dokumentide allkirjastamist ja kõigi väljamakse eeltingimuste täitmist maksame laenu välja."
     },
     "cta": {
       "heading": "valmis edasi liikuma?",
-      "subheading": "alusta meie finantseerimislahendustega juba täna. meie meeskond on valmis aitama sul leida sinu ettevõttele sobiva lahenduse.",
+      "subheading": "taotle finantseerimist juba täna. meie meeskond aitab leida sinu ettevõttele sobiva lahenduse.",
       "applyButton": "esita taotlus",
       "contactButton": "võta ühendust"
     }
   },
   "CreditLinePage": {
     "hero": {
-      "title": "krediidiliinid. finantseerimine nõudmisel.",
-      "subtitle": "paindlik krediidiliin ettevõtetele, kes soovivad kasutusvalmis finantseerimist.",
-      "description": "kasuta vajaduse korral, kasuta uuesti tagasimaksmisel ja maksa intressi ainult kasutuses oleva summa pealt.",
+      "title": "krediidiliinid. finantseerimine vajaduse järgi.",
+      "subtitle": "paindlik krediidiliin juriidilistele isikutele, kes soovivad hoida finantseerimist kasutusvalmis.",
+      "description": "kasuta limiiti siis, kui seda vajad, võta seda uuesti kasutusele tagasimaksete ulatuses ja maksa intressi ainult kasutuses oleva summa pealt.",
       "cta": "esita taotlus",
       "imageAlt": "krediidiliini finantseerimine"
     },
     "overview": {
       "heading": "krediidiliini ülevaade",
-      "subheading": "läbipaistvad tingimused sinu ettevõtte kasvu toetamiseks",
+      "subheading": "selged tingimused, mis aitavad toetada sinu ettevõtte kasvu",
       "terms": {
         "applicant": {
           "label": "taotleja",
@@ -337,7 +347,7 @@
         },
         "ltv": {
           "label": "ltv",
-          "value": "kuni 75% tagatise väärtusest"
+          "value": "laenusumma kuni 75% tagatise väärtusest"
         },
         "creditPeriod": {
           "label": "krediidiperiood",
@@ -353,29 +363,29 @@
         },
         "interestRate": {
           "label": "intressimäär",
-          "value": "alates 9,5% aastas pluss 6 kuu euribor, arvestatuna kasutusele võetud krediidijäägi pealt"
+          "value": "alates 9,5% aastas + 6 kuu euribor, arvestatuna kasutusele võetud jäägi pealt"
         },
         "originationFee": {
           "label": "lepingutasu",
           "value": "1% kuni 2% krediidiliini summast"
         },
         "commitmentFee": {
-          "label": "kohustustasu",
-          "value": "4% aastas, arvestatuna kasutamata krediidijäägi pealt"
+          "label": "kohustistasu",
+          "value": "4% aastas, arvestatuna kasutamata jäägi pealt"
         }
       }
     },
     "process": {
       "heading": "krediidiliini taotlemise protsess",
       "subheading": "lihtsad ja arusaadavad sammud finantseerimise saamiseks",
-      "step1": "esita taotlusvorm.",
-      "step2": "vaatame teabe üle ja võime sinuga täpsustuste osas ühendust võtta. kui teave on piisav, püüame anda indikatiivse pakkumise 48 tööajatunni jooksul.",
-      "step3": "kui tingimused sobivad, viime läbi vajalikud kontrollid ja koostame laenu- ning tagatisdokumendid.",
-      "step4": "kui dokumendid on allkirjastatud ja kõik väljamaksetingimused täidetud, tehakse krediidiliin kasutusele võtmiseks kättesaadavaks."
+      "step1": "esita taotlus.",
+      "step2": "vaatame esitatud info üle ja võime vajaduse korral võtta sinuga ühendust täpsustuste küsimiseks. kui info on piisav, esitame indikatiivse pakkumise kahe tööpäeva jooksul.",
+      "step3": "kui finantseerimistingimused sobivad, viime läbi vajalikud kontrollid ning valmistame ette laenu- ja tagatisdokumendid.",
+      "step4": "pärast dokumentide allkirjastamist ja kõigi väljamakse eeltingimuste täitmist tehakse krediidiliin kasutusele võtmiseks kättesaadavaks."
     },
     "cta": {
       "heading": "valmis edasi liikuma?",
-      "subheading": "alusta meie finantseerimislahendustega juba täna. meie meeskond on valmis aitama sul leida sinu ettevõttele parima lahenduse.",
+      "subheading": "taotle finantseerimist juba täna. meie meeskond aitab leida sinu ettevõttele sobiva lahenduse.",
       "applyButton": "esita taotlus",
       "contactButton": "võta ühendust"
     }
@@ -383,50 +393,50 @@
   "PriceListPage": {
     "hero": {
       "title": "hinnakiri",
-      "subtitle": "läbipaistvad hinnad kõigile meie finantsteenustele."
+      "subtitle": "selged hinnad meie finantsteenustele"
     },
-    "effectiveDate": "hinnakiri kehtib alates 27. märtsist 2026.",
-    "vatNotice": "teenustasudele võib vastavalt kehtivale seadusele lisanduda käibemaks.",
+    "effectiveDate": "hinnakiri kehtib alates 27.03.2026.",
+    "vatNotice": "teenustasudele võib lisanduda käibemaks seaduses sätestatud korras.",
     "sections": {
       "agreementFees": {
         "name": "lepingutasud",
         "items": {
           "entryFee": {
             "title": "lepingu sõlmimise tasu",
-            "price": "1%–2% krediidisummast, minimaalselt €200"
+            "price": "1%–2% krediidisummalt, minimaalselt 200 €"
           },
           "commitmentFee": {
-            "title": "krediidiliini reservatsioonitasu",
+            "title": "krediidiliini kohustistasu",
             "price": "4% aastas kasutamata summalt"
           }
         }
       },
       "changes": {
-        "name": "lepingu muudatused",
+        "name": "lepingu muutmine",
         "items": {
           "increaseCreditAmount": {
             "title": "krediidisumma suurendamine",
-            "price": "1% täiendavast krediidisummast, minimaalselt €100"
+            "price": "1% täiendavast krediidisummast, minimaalselt 100 €"
           },
           "changePaymentDate": {
             "title": "maksepäeva muutmine",
-            "price": "€20"
+            "price": "20 €"
           },
           "paymentHoliday": {
             "title": "maksepuhkus või restruktureerimine makseraskuste tõttu",
-            "price": "0,1% krediidijäägist, minimaalselt €100"
+            "price": "0,1% krediidijäägist, minimaalselt 100 €"
           },
           "earlyRepayment": {
             "title": "osaline või täielik ennetähtaegne tagasimakse",
-            "price": "tasuta, kui sellest teatatakse vähemalt 3 kuud ette; vastasel juhul arvestatakse ennetähtaegselt tagastatud krediidisummalt intressi etteteatamistähtaja järgimata osa eest"
+            "price": "tasuta, kui sellest teatatakse ette vähemalt 3 kuud; vastasel juhul tuleb tasuda intressi ennetähtaegselt tagastatud krediidisummalt 3-kuulise etteteatamistähtaja järgimata jäänud osa eest"
           },
           "earlyTermination": {
             "title": "krediidiliini ennetähtaegne lõpetamine või limiidi vähendamine",
-            "price": "tasuta, kui sellest teatatakse vähemalt 3 kuud ette; vastasel juhul rakendatakse reservatsioonitasu vähendatud summale või lõpetamise korral kasutamata krediidijäägile etteteatamistähtaja järgimata osa eest"
+            "price": "tasuta, kui sellest teatatakse ette vähemalt 3 kuud; vastasel juhul tuleb tasuda kasutamata limiidi tasu vähendatud summa ulatuses või krediidiliini ennetähtaegse lõpetamise korral kasutamata krediidisummalt 3-kuulise etteteatamistähtaja järgimata jäänud osa eest"
           },
           "otherAmendments": {
             "title": "muud lepingu muudatused (näiteks tähtaja muutmine või tagatise asendamine)",
-            "price": "1% krediidijäägist, minimaalselt €100"
+            "price": "1% krediidijäägist, minimaalselt 100 €"
           }
         }
       },
@@ -439,7 +449,7 @@
           },
           "attendanceOther": {
             "title": "osalemine notariaalses tehingus muul põhjusel",
-            "price": "€100"
+            "price": "100 €"
           }
         }
       },
@@ -447,16 +457,16 @@
         "name": "sissenõudmiskulud",
         "items": {
           "reminder": {
-            "title": "meeldetuletuskiri või võlateatis",
-            "price": "esimene tasuta, alates teisest €10"
+            "title": "meeldetuletuskiri või võlateade",
+            "price": "esimene tasuta, alates teisest 10 €"
           },
           "noticeOfTermination": {
-            "title": "lepingu lõpetamise teade",
-            "price": "€20"
+            "title": "lepingu ülesütlemise hoiatus",
+            "price": "20 €"
           },
           "terminationLetter": {
-            "title": "lepingu lõpetamise kiri",
-            "price": "€40"
+            "title": "lepingu ülesütlemise teade",
+            "price": "40 €"
           }
         }
       },
@@ -465,15 +475,15 @@
         "items": {
           "confirmationLetter": {
             "title": "kinnituskiri",
-            "price": "€10"
+            "price": "10 €"
           },
           "auditorConfirmation": {
-            "title": "audiitorile mõeldud kinnituskiri",
-            "price": "€20"
+            "title": "kinnituskiri audiitorile",
+            "price": "20 €"
           },
           "specialRequest": {
-            "title": "eriteabe päring",
-            "price": "€30 tunnis, minimaalselt €30"
+            "title": "erakorraline infopäring",
+            "price": "30 € tunnis, minimaalselt 30 €"
           }
         }
       },
@@ -481,7 +491,7 @@
         "name": "viivis",
         "items": {
           "penaltyRate": {
-            "title": "hilinenud makse viivisemäär",
+            "title": "viivisemäär",
             "price": "0,1% päevas (36,5% aastas)"
           }
         }
@@ -490,8 +500,8 @@
   },
   "TermsOfServicePage": {
     "hero": {
-      "title": "teenusetingimused",
-      "subtitle": "laadige alla ja tutvuge meie juriidiliste dokumentidega."
+      "title": "tingimused",
+      "subtitle": "tutvu meie õiguslike dokumentidega ja laadi need alla"
     },
     "documents": {
       "websiteTerms": {
@@ -504,13 +514,13 @@
       },
       "financingTerms": {
         "title": "üldtingimused",
-        "description": "juriidiliste isikute finantseerimislepingutele kohaldatavad tingimused."
+        "description": "juriidiliste isikute krediidilepingutele kohalduvad üldtingimused."
       }
     },
     "downloadButton": "laadi pdf alla",
     "cta": {
-      "heading": "küsimusi meie tingimuste kohta?",
-      "subheading": "meie klienditugi on valmis aitama. võtke meiega ühendust küsimuste või murede korral.",
+      "heading": "küsimused tingimuste kohta?",
+      "subheading": "meie klienditugi aitab sind hea meelega. võta meiega ühendust, kui sul on küsimusi või vajad täpsustusi.",
       "button": "võta ühendust"
     }
   }

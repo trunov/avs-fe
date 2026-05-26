@@ -245,6 +245,35 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* CTA */}
+      <section className="w-full bg-dark-brown py-24 md:py-32 overflow-hidden">
+        <div className="max-w-[120rem] mx-auto px-6 md:px-12">
+          <FadeIn className="text-center">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-vibrant-yellow mb-8">
+              {t("cta.heading")}
+            </h2>
+            <p className="font-paragraph text-lg md:text-xl text-vibrant-yellow-light mb-12 max-w-3xl mx-auto leading-relaxed">
+              {t("cta.subheading")}
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <Link
+                href="/application"
+                className="inline-flex items-center justify-center px-10 py-4 bg-vibrant-yellow text-dark-brown font-paragraph font-bold text-base rounded-lg hover:bg-vibrant-yellow-dark transition-all duration-300 hover:shadow-lg hover:shadow-vibrant-yellow/50"
+              >
+                {t("cta.applyButton")}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+              <Link
+                href="/contacts"
+                className="inline-flex items-center justify-center px-10 py-4 border-2 border-vibrant-yellow text-vibrant-yellow font-paragraph font-bold text-base rounded-lg hover:bg-vibrant-yellow hover:text-dark-brown transition-all duration-300"
+              >
+                {t("cta.contactButton")}
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
     </div>
   );
 }

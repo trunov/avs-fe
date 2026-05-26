@@ -5,26 +5,24 @@ export interface TeamMember {
   roleKey: string; // i18n key under TeamMembers.roles.{key}
   bioKey: string;  // i18n key under TeamMembers.bios.{key}
   email?: string;
-  socialMediaLink?: string;
   profileImage?: string; // URL or imported image
 }
 
 export const teamMembers: TeamMember[] = [
   {
     id: "1",
-    name: "Person One",
+    name: "personOne",
     roleKey: "ceo",
     bioKey: "personOne",
-    email: "person.one@avs.ee",
-    socialMediaLink: "https://www.linkedin.com/in/...",
-    profileImage: "/team/person-one.jpg",
+    email: "aleksandr@avs.ee",
+    profileImage: "/team/c1.png",
   },
   {
     id: "2",
-    name: "Person Two",
+    name: "personTwo",
     roleKey: "headOfCredit",
     bioKey: "personTwo",
-    email: "person.two@avs.ee",
-    profileImage: "/team/person-two.jpg",
+    email: "evelin@avs.ee",
+    profileImage: "/team/c2.png",
   },
 ];

@@ -386,6 +386,7 @@ export default function ContactsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16">
             {teamMembers.length > 0 ? (
               teamMembers.map((member, index) => (
+                
                 <FadeIn key={member.id} delay={index * 0.1}>
                   <div className="bg-white rounded-2xl overflow-hidden border-2 border-dark-brown hover:shadow-lg transition-all duration-300">
                     <div className="relative w-full h-64 md:h-80 bg-vibrant-yellow overflow-hidden">
@@ -408,7 +409,7 @@ export default function ContactsPage() {
 
                     <div className="p-8">
                       <h3 className="font-heading text-2xl text-dark-brown mb-2 leading-tight">
-                        {member.name}
+                        {tTeam(`name.${member.name}`)}
                       </h3>
                       <p className="font-paragraph text-sm font-semibold text-primary mb-4">
                         {tTeam(`roles.${member.roleKey}`)}
@@ -428,20 +429,6 @@ export default function ContactsPage() {
                               {member.email}
                             </a>
                           </div>
-                        </div>
-                      )}
-
-                      {member.socialMediaLink && (
-                        <div className="flex items-center gap-2">
-                          <a
-                            href={member.socialMediaLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-vibrant-yellow hover:bg-vibrant-yellow-dark text-dark-brown transition-all duration-300"
-                            title={t("team.socialMedia")}
-                          >
-                            <Globe className="h-5 w-5" />
-                          </a>
                         </div>
                       )}
                     </div>

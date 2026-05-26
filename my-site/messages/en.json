@@ -6,13 +6,13 @@
     "contacts": "contacts",
     "faq": "faq",
     "apply": "apply",
-    "language": "Language"
+    "language": "language"
   },
   "HomePage": {
     "hero": {
       "title": "secured loans and credit lines for legal entities.",
       "benefits": {
-        "interest": "annual interest from 9,5% plus 6-month euribor",
+        "interest": "annual interest from 9% plus 6-month euribor",
         "ltv": "financing of up to 80% of collateral value",
         "term": "terms of up to 120 months",
         "purposes": "suitable for refinancing, flipping, investment, working capital and other business purposes"
@@ -23,7 +23,7 @@
       "heading": "why choose avs",
       "terms": {
         "title": "competitive terms",
-        "description": "annual interest from 9,5% plus 6-month euribor, financing of up to 80% of the collateral value and flexible repayment terms."
+        "description": "annual interest from 9% plus 6-month euribor, financing of up to 80% of the collateral value and flexible repayment terms."
       },
       "process": {
         "title": "efficient process",
@@ -48,6 +48,12 @@
         "cta": "explore credit lines",
         "imageAlt": "Credit lines financing"
       }
+    },
+    "cta": {
+      "heading": "ready to proceed?",
+      "subheading": "get started with our financing solutions today. our team is ready to help you find the suitable solution for your business.",
+      "applyButton": "apply now",
+      "contactButton": "contact us"
     }
   },
   "Footer": {
@@ -73,83 +79,83 @@
   },
   "ApplicationPage": {
     "hero": {
-      "title": "Financing application",
-      "subtitle": "Complete the form below to apply for financing"
+      "title": "financing application",
+      "subtitle": "complete the form below to apply for financing"
     },
     "financingDetails": {
-      "heading": "Financing details",
-      "financingType": "Financing type",
-      "financingTypePlaceholder": "Select financing type",
-      "corporateLoan": "Corporate loan",
-      "creditLine": "Credit line",
-      "financingAmount": "Financing amount (EUR)",
-      "financingAmountPlaceholder": "Total desired amount of financing",
-      "financingPurpose": "Purpose of the financing",
-      "financingPurposePlaceholder": "Please describe the purpose of the financing...",
-      "scheduleType": "Schedule type",
-      "scheduleTypePlaceholder": "Select schedule type",
-      "annuity": "Annuity",
-      "bullet": "Bullet",
-      "loanPeriod": "Loan period (months)",
-      "loanPeriodPlaceholder": "Total duration of the loan"
+      "heading": "financing details",
+      "financingType": "financing type",
+      "financingTypePlaceholder": "select financing type",
+      "corporateLoan": "corporate loan",
+      "creditLine": "credit line",
+      "financingAmount": "financing amount (euros)",
+      "financingAmountPlaceholder": "total desired amount of financing",
+      "financingPurpose": "purpose of the financing",
+      "financingPurposePlaceholder": "please describe the purpose of the financing...",
+      "scheduleType": "schedule type",
+      "scheduleTypePlaceholder": "select schedule type",
+      "annuity": "annuity",
+      "bullet": "bullet",
+      "loanPeriod": "loan period (months)",
+      "loanPeriodPlaceholder": "total duration of the loan"
     },
     "applicantInformation": {
-      "heading": "Applicant information",
-      "legalEntityName": "Name of the legal entity",
-      "registrationNumber": "Registry code",
-      "communicationLanguage": "Preferred communication language",
-      "communicationLanguagePlaceholder": "Select language",
-      "estonian": "Estonian",
-      "english": "English",
-      "russian": "Russian",
-      "contactPersonName": "Contact person",
-      "phoneNumber": "Phone number",
-      "emailAddress": "Email address"
+      "heading": "applicant information",
+      "legalEntityName": "name of the legal entity",
+      "registrationNumber": "registry code",
+      "communicationLanguage": "preferred communication language",
+      "communicationLanguagePlaceholder": "select language",
+      "estonian": "estonian",
+      "english": "english",
+      "russian": "russian",
+      "contactPersonName": "contact person",
+      "phoneNumber": "phone number",
+      "emailAddress": "email address"
     },
     "collateral": {
-      "heading": "Collateral information",
-      "type": "Collateral type",
-      "mortgage": "Mortgage",
-      "other": "Other",
-      "remove": "Remove collateral",
-      "propertyType": "Property type",
-      "propertyTypePlaceholder": "Select property type",
-      "apartment": "Apartment",
-      "building": "Building",
-      "land": "Land",
-      "otherProperty": "Other",
-      "address": "Address",
-      "addressPlaceholder": "Enter property address",
-      "description": "Description",
-      "descriptionPlaceholder": "Describe the collateral",
-      "addCollateral": "+ Add collateral"
+      "heading": "collateral information",
+      "type": "collateral type",
+      "mortgage": "mortgage",
+      "other": "other",
+      "remove": "remove collateral",
+      "propertyType": "property type",
+      "propertyTypePlaceholder": "select property type",
+      "apartment": "apartment",
+      "building": "building",
+      "land": "land",
+      "otherProperty": "other",
+      "address": "address",
+      "addressPlaceholder": "enter property address",
+      "description": "description",
+      "descriptionPlaceholder": "describe the collateral",
+      "addCollateral": "+ add collateral"
     },
     "surety": {
-      "heading": "Surety information (optional)",
-      "representativeIsSurety": "The contact person is willing to act as a surety personally",
-      "representativeIdCode": "Identification code of the contact person",
-      "otherIsSurety": "Another person is willing to act as a surety",
-      "suretyName": "Name of surety person",
-      "suretyNamePlaceholder": "Full name",
-      "suretyIdCode": "Identification code",
-      "idCodePlaceholder": "Identification code"
+      "heading": "surety information (optional)",
+      "representativeIsSurety": "the contact person is willing to act as a surety personally",
+      "representativeIdCode": "identification code of the contact person",
+      "otherIsSurety": "another person is willing to act as a surety",
+      "suretyName": "name of surety person",
+      "suretyNamePlaceholder": "full name",
+      "suretyIdCode": "identification code",
+      "idCodePlaceholder": "identification code"
     },
     "submit": {
-      "submit": "Submit application",
-      "submitting": "Submitting application...",
+      "submit": "submit application",
+      "submitting": "submitting application...",
       "requiredHint": "* Required fields."
     },
     "success": {
-      "heading": "Application submitted successfully",
-      "body": "Thank you for choosing AVS Finance. We have received your application and our team will review it and contact you shortly.",
-      "redirecting": "Redirecting to homepage..."
+      "heading": "application submitted successfully",
+      "body": "thank you for choosing avs finance. we have received your application and our team will review it and contact you shortly.",
+      "redirecting": "redirecting to homepage..."
     },
     "errors": {
-      "collateralRequired": "At least one collateral must be provided.",
-      "mortgageFieldsRequired": "Property type and address are required for mortgage collaterals.",
-      "otherDescriptionRequired": "Description is required for other collaterals.",
+      "collateralRequired": "at least one collateral must be provided.",
+      "mortgageFieldsRequired": "property type and address are required for mortgage collaterals.",
+      "otherDescriptionRequired": "description is required for other collaterals.",
       "apiError": "API error: {status}",
-      "generic": "An error occurred while submitting the form. Please try again."
+      "generic": "an error occurred while submitting the form. please try again."
     }
   },
   "ContactsPage": {
@@ -179,16 +185,16 @@
       "messagePlaceholder": "your message",
       "submit": "send message",
       "submitting": "submitting application...",
-      "successHeading": "Thank you for reaching out!",
-      "successBody": "We've received your message and will get back to you within 1–2 business days.",
-      "sendAnother": "Send another message"
+      "successHeading": "thank you for reaching out!",
+      "successBody": "we have received your message and will get back to you shortly.",
+      "sendAnother": "send another message"
     },
     "map": {
       "heading": "find us"
     },
     "company": {
       "heading": "company details",
-      "subheading": "official information and credentials for avs finance oü",
+      "subheading": "official information and credentials for avs finance",
       "registryCode": "registry code",
       "vatCode": "vat code",
       "licenceNumber": "licence number",
@@ -199,7 +205,7 @@
       "coopPank": "coop pank"
     },
     "team": {
-      "heading": "meet our team",
+      "heading": "meet our management team",
       "noImage": "No image",
       "socialMedia": "Social Media",
       "empty": "No team members found"
@@ -211,19 +217,23 @@
     }
   },
   "TeamMembers": {
+    "name": {
+      "personOne": "Aleksandr Šapovalov",
+      "personTwo": "Evelin Metslov"
+    },
     "roles": {
-      "ceo": "Chief Executive Officer",
-      "headOfCredit": "Head of Credit"
+      "ceo": "chairman of the board",
+      "headOfCredit": "board member"
     },
     "bios": {
-      "personOne": "Bio for person one. Replace with the actual bio.",
-      "personTwo": "Bio for person two. Replace with the actual bio."
+      "personOne": "Aleksandr Šapovalov is an attorney practising in Estonia, with experience in law, the financial sector, hospitality and real estate.\n\nAleksandr graduated from Tallinn French School. In 2020, he completed his law studies at the University of Tartu, where he also obtained a master’s degree in law in 2022. In 2024, he completed a diploma programme in English law at Cardiff University, which is equivalent to bachelor’s degree studies.\n\nAleksandr works at the law firm Sorainen and has previously worked in London at the international law firm CMS. He has also previously managed various companies in the hospitality and real estate sectors in Estonia.",
+      "personTwo": "Evelin Metslov graduated from Tallinn French School and obtained a bachelor’s degree in international business administration from EBS in 2020.\n\nEvelin has experience in consultancy, real estate, and clothing production and retail, having previously managed several companies in these sectors."
     }
   },
   "FAQPage": {
     "hero": {
       "title": "frequently asked questions",
-      "subtitle": "find answers to common questions below."
+      "subtitle": "find answers to common questions below"
     },
     "categories": {
       "all": "all questions",
@@ -283,7 +293,7 @@
         },
         "interestRate": {
           "label": "interest rate",
-          "value": "from 9,5% per annum plus 6-month euribor, calculated on the outstanding loan balance"
+          "value": "from 9% per annum plus 6-month euribor, calculated on the outstanding loan balance"
         },
         "originationFee": {
           "label": "origination fee",
@@ -304,7 +314,7 @@
       "subheading": "simple and straightforward steps to get your financing",
       "step1": "submit the application form.",
       "step2": "we review the information and may contact you for clarifications. if the information is sufficient, we aim to provide an indicative offer within 48 business hours.",
-      "step3": "if the terms are suitable, we complete the required checks and prepare the loan and security documents.",
+      "step3": "if the financing terms are suitable, we complete the required checks and prepare the loan and security documents.",
       "step4": "once the documents are signed and all disbursement conditions are met, the loan is paid out."
     },
     "cta": {
@@ -369,7 +379,7 @@
       "subheading": "simple and straightforward steps to get your financing",
       "step1": "submit the application form.",
       "step2": "we review the information and may contact you for clarifications. if the information is sufficient, we aim to provide an indicative offer within 48 business hours.",
-      "step3": "if the terms are suitable, we complete the required checks and prepare the loan and security documents.",
+      "step3": "if the financing terms are suitable, we complete the required checks and prepare the loan and security documents.",
       "step4": "once the documents are signed and all disbursement conditions are met, the credit line is made available for drawdowns."
     },
     "cta": {
@@ -382,7 +392,7 @@
   "TermsOfServicePage": {
     "hero": {
       "title": "terms of service",
-      "subtitle": "download and review our legal documents."
+      "subtitle": "download and review our legal documents"
     },
     "documents": {
       "websiteTerms": {
@@ -408,7 +418,7 @@
   "PriceListPage": {
     "hero": {
       "title": "price list",
-      "subtitle": "transparent pricing for all our financial services."
+      "subtitle": "transparent pricing for all our financial services"
     },
     "effectiveDate": "price list effective from 27 march 2026.",
     "vatNotice": "value added tax (vat) may be added to service fees in accordance with applicable law.",
@@ -418,7 +428,7 @@
         "items": {
           "entryFee": {
             "title": "entry into contract fee",
-            "price": "1%–2% of the credit amount, minimum €200"
+            "price": "1%–2% of the credit amount, minimum 200 €"
           },
           "commitmentFee": {
             "title": "credit line commitment fee",
@@ -431,15 +441,15 @@
         "items": {
           "increaseCreditAmount": {
             "title": "increase of the credit amount",
-            "price": "1% of the additional credit amount, minimum €100"
+            "price": "1% of the additional credit amount, minimum 100 €"
           },
           "changePaymentDate": {
             "title": "change of payment date",
-            "price": "€20"
+            "price": "20 €"
           },
           "paymentHoliday": {
             "title": "payment holiday or restructuring due to payment difficulties",
-            "price": "0,1% of credit balance, minimum €100"
+            "price": "0,1% of credit balance, minimum 100 €"
           },
           "earlyRepayment": {
             "title": "partial or full early repayment",
@@ -451,7 +461,7 @@
           },
           "otherAmendments": {
             "title": "other amendments to the agreement (for example, change of term or replacement of collateral)",
-            "price": "1% of the credit balance, minimum €100"
+            "price": "1% of the credit balance, minimum 100 €"
           }
         }
       },
@@ -464,7 +474,7 @@
           },
           "attendanceOther": {
             "title": "attendance at a notarial transaction for any other reason",
-            "price": "€100"
+            "price": "100 €"
           }
         }
       },
@@ -473,15 +483,15 @@
         "items": {
           "reminder": {
             "title": "reminder letter or debt notice",
-            "price": "first free of charge, from the second onwards €10"
+            "price": "first free of charge, from the second onwards 10 €"
           },
           "noticeOfTermination": {
             "title": "notice of termination",
-            "price": "€20"
+            "price": "20 €"
           },
           "terminationLetter": {
             "title": "termination letter",
-            "price": "€40"
+            "price": "40 €"
           }
         }
       },
@@ -490,15 +500,15 @@
         "items": {
           "confirmationLetter": {
             "title": "confirmation letter",
-            "price": "€10"
+            "price": "10 €"
           },
           "auditorConfirmation": {
             "title": "confirmation letter for an auditor",
-            "price": "€20"
+            "price": "20 €"
           },
           "specialRequest": {
             "title": "special information request",
-            "price": "€30 per hour, minimum €30"
+            "price": "30 € per hour, minimum 30 €"
           }
         }
       },
