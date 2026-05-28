@@ -522,5 +522,32 @@
         }
       }
     }
+  },
+  "LoanCalculator": {
+    "creditAmount": "сумма кредита",
+    "annualRate": "годовая процентная ставка",
+    "duration": "срок",
+    "monthsCount": "{count} мес.",
+    "yearsCount": "{years} лет",
+    "scheduleType": "тип графика",
+    "annuity": "аннуитет",
+    "bullet": "булет-график",
+    "monthlyPayment": "ежемесячный платёж",
+    "totalInterest": "проценты всего",
+    "originationFee": "комиссия за оформление",
+    "totalPayment": "платёж всего",
+    "viewSchedule": "посмотреть пример графика",
+    "disclaimer": "калькулятор предоставляет лишь ориентировочные примерные условия; окончательные условия, предложенные вам, могут отличаться",
+    "schedule": {
+      "title": "пример графика платежей",
+      "month": "месяц",
+      "balance": "остаток кредита",
+      "principal": "погашение основной суммы",
+      "interest": "выплата процентов",
+      "originationFee": "комиссия за оформление",
+      "totalPrincipal": "основная сумма всего",
+      "totalOriginationFee": "комиссия за оформление всего",
+      "totalDue": "сумма к оплате всего"
+    }
   }
 }

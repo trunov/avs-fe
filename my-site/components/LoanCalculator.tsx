@@ -1,9 +1,16 @@
-import { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { Card } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { formatEuropeanNumber } from '@/lib/format-number';
+"use client";
+
+import { useState, useMemo } from "react";
+import { motion } from "framer-motion";
+import { useTranslations, useFormatter } from "next-intl";
+import { Card } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 interface PaymentScheduleItem {
   month: number;
@@ -15,15 +22,18 @@ interface PaymentScheduleItem {
 }
 
 export default function LoanCalculator() {
+  const t = useTranslations("LoanCalculator");
+  const format = useFormatter();
+
   const [creditAmount, setCreditAmount] = useState(100000);
   const [annualRate, setAnnualRate] = useState(9.5);
   const [duration, setDuration] = useState(60);
-  const [scheduleType, setScheduleType] = useState<'annuity' | 'bullet'>('annuity');
+  const [scheduleType, setScheduleType] = useState<"annuity" | "bullet">("annuity");
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
 
   const calculations = useMemo(() => {
     const principal = creditAmount;
-    const originationFee = Math.max(creditAmount * 0.01, 200); // 1% or minimum 200 euros
+    const originationFee = Math.max(creditAmount * 0.01, 200);
     const monthlyRate = annualRate / 100 / 12;
     const months = duration;
 
@@ -31,8 +41,7 @@ export default function LoanCalculator() {
     const schedule: PaymentScheduleItem[] = [];
     let totalInterest = 0;
 
-    if (scheduleType === 'annuity') {
-      // Annuity calculation: equal monthly payments
+    if (scheduleType === "annuity") {
       if (monthlyRate === 0) {
         monthlyPayment = principal / months;
       } else {
@@ -46,8 +55,6 @@ export default function LoanCalculator() {
         const interestPayment = balance * monthlyRate;
         const principalPayment = monthlyPayment - interestPayment;
         balance -= principalPayment;
-
-        // Origination fee is paid only in the first month
         const originationFeeForMonth = i === 1 ? originationFee : 0;
 
         schedule.push({
@@ -62,15 +69,12 @@ export default function LoanCalculator() {
         totalInterest += interestPayment;
       }
     } else {
-      // Bullet schedule: interest-only payments, principal at end
       monthlyPayment = principal * monthlyRate;
 
       for (let i = 1; i <= months; i++) {
-        // Origination fee is paid only in the first month
         const originationFeeForMonth = i === 1 ? originationFee : 0;
 
         if (i === months) {
-          // Last payment includes principal
           schedule.push({
             month: i,
             payment: monthlyPayment + principal + originationFeeForMonth,
@@ -95,22 +99,31 @@ export default function LoanCalculator() {
     }
 
     let totalPayment = monthlyPayment * months;
-    if (scheduleType === 'bullet') {
+    if (scheduleType === "bullet") {
       totalPayment = totalInterest + principal;
     }
 
-    return {
-      monthlyPayment,
-      totalPayment,
-      totalInterest,
-      originationFee,
-      schedule,
-    };
+    return { monthlyPayment, totalPayment, totalInterest, originationFee, schedule };
   }, [creditAmount, annualRate, duration, scheduleType]);
 
-  const formatCurrency = (value: number) => {
-    return formatEuropeanNumber(value);
-  };
+  // Locale-aware currency: "100 000,00 €" in et/ru, "€100,000.00" in en
+  const currency = (value: number) =>
+    format.number(value, {
+      style: "currency",
+      currency: "EUR",
+      maximumFractionDigits: 2,
+    });
+
+  // Locale-aware percent and decimal
+  const percent = (value: number) =>
+    format.number(value / 100, {
+      style: "percent",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+
+  const years = (months: number) =>
+    format.number(months / 12, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
   return (
     <motion.div
@@ -125,7 +138,7 @@ export default function LoanCalculator() {
           {/* Credit Amount */}
           <div>
             <label className="font-paragraph text-lg md:text-xl text-dark-brown mb-3 block font-bold">
-              credit amount: {formatCurrency(creditAmount)}
+              {t("creditAmount")}: {currency(creditAmount)}
             </label>
             <input
               type="range"
@@ -137,15 +150,15 @@ export default function LoanCalculator() {
               className="w-full h-2 bg-dark-brown/20 rounded-lg appearance-none cursor-pointer accent-dark-brown"
             />
             <div className="flex justify-between font-paragraph text-xs text-dark-brown-light mt-2">
-              <span>10 000 €</span>
-              <span>1 000 000 €</span>
+              <span>{currency(10000)}</span>
+              <span>{currency(1000000)}</span>
             </div>
           </div>
 
           {/* Annual Rate */}
           <div>
             <label className="font-paragraph text-lg md:text-xl text-dark-brown mb-3 block font-bold">
-              annual rate: {annualRate.toFixed(2).replace('.', ',')}%
+              {t("annualRate")}: {percent(annualRate)}
             </label>
             <input
               type="range"
@@ -156,15 +169,15 @@ export default function LoanCalculator() {
               className="w-full h-2 bg-dark-brown/20 rounded-lg appearance-none cursor-pointer accent-dark-brown"
             />
             <div className="flex justify-between font-paragraph text-xs text-dark-brown-light mt-2">
-              <span>0%</span>
-              <span>15%</span>
+              <span>{percent(0)}</span>
+              <span>{percent(15)}</span>
             </div>
           </div>
 
           {/* Duration */}
           <div>
             <label className="font-paragraph text-lg md:text-xl text-dark-brown mb-3 block font-bold">
-              duration: {duration} months ({(duration / 12).toFixed(1).replace('.', ',')} years)
+              {t("duration")}: {t("monthsCount", { count: duration })} ({t("yearsCount", { years: years(duration) })})
             </label>
             <input
               type="range"
@@ -175,36 +188,36 @@ export default function LoanCalculator() {
               className="w-full h-2 bg-dark-brown/20 rounded-lg appearance-none cursor-pointer accent-dark-brown"
             />
             <div className="flex justify-between font-paragraph text-xs text-dark-brown-light mt-2">
-              <span>0 months</span>
-              <span>120 months</span>
+              <span>{t("monthsCount", { count: 0 })}</span>
+              <span>{t("monthsCount", { count: 120 })}</span>
             </div>
           </div>
 
-          {/* Schedule Type Selection */}
+          {/* Schedule Type */}
           <div>
             <label className="font-paragraph text-lg md:text-xl text-dark-brown font-semibold mb-3 block">
-              schedule type
+              {t("scheduleType")}
             </label>
             <div className="flex gap-4">
               <button
-                onClick={() => setScheduleType('annuity')}
-                className={`flex-1 py-3 px-4 rounded-lg font-paragraph font-semibold transition-all ${ 
-                  scheduleType === 'annuity'
-                    ? 'bg-dark-brown text-vibrant-yellow'
-                    : 'bg-dark-brown/10 text-dark-brown hover:bg-dark-brown/20'
+                onClick={() => setScheduleType("annuity")}
+                className={`flex-1 py-3 px-4 rounded-lg font-paragraph font-semibold transition-all ${
+                  scheduleType === "annuity"
+                    ? "bg-dark-brown text-vibrant-yellow"
+                    : "bg-dark-brown/10 text-dark-brown hover:bg-dark-brown/20"
                 }`}
               >
-                annuity
+                {t("annuity")}
               </button>
               <button
-                onClick={() => setScheduleType('bullet')}
+                onClick={() => setScheduleType("bullet")}
                 className={`flex-1 py-3 px-4 rounded-lg font-paragraph font-semibold transition-all ${
-                  scheduleType === 'bullet'
-                    ? 'bg-dark-brown text-vibrant-yellow'
-                    : 'bg-dark-brown/10 text-dark-brown hover:bg-dark-brown/20'
+                  scheduleType === "bullet"
+                    ? "bg-dark-brown text-vibrant-yellow"
+                    : "bg-dark-brown/10 text-dark-brown hover:bg-dark-brown/20"
                 }`}
               >
-                bullet
+                {t("bullet")}
               </button>
             </div>
           </div>
@@ -213,134 +226,144 @@ export default function LoanCalculator() {
           <div className="grid grid-cols-2 gap-3 pt-4 border-t border-dark-brown/10">
             <div>
               <p className="font-paragraph text-lg text-dark-brown-light mb-1">
-                monthly payment
+                {t("monthlyPayment")}
               </p>
               <p className="font-paragraph text-xl md:text-2xl text-dark-brown font-bold">
-                {formatCurrency(calculations.monthlyPayment)}
+                {currency(calculations.monthlyPayment)}
               </p>
             </div>
-
             <div>
               <p className="font-paragraph text-lg text-dark-brown-light mb-1">
-                total interest
+                {t("totalInterest")}
               </p>
               <p className="font-paragraph text-xl md:text-2xl text-dark-brown font-semibold">
-                {formatCurrency(calculations.totalInterest)}
+                {currency(calculations.totalInterest)}
               </p>
             </div>
-
-            <div>
-              <p className="font-paragraph text-lg text-dark-brown-light mb-1">origination fee</p>
-              <p className="font-paragraph text-xl md:text-2xl text-dark-brown font-semibold">
-                {formatCurrency(calculations.originationFee)}
-              </p>
-            </div>
-
             <div>
               <p className="font-paragraph text-lg text-dark-brown-light mb-1">
-                total payment
+                {t("originationFee")}
               </p>
               <p className="font-paragraph text-xl md:text-2xl text-dark-brown font-semibold">
-                {formatCurrency(calculations.totalPayment + calculations.originationFee)}
+                {currency(calculations.originationFee)}
+              </p>
+            </div>
+            <div>
+              <p className="font-paragraph text-lg text-dark-brown-light mb-1">
+                {t("totalPayment")}
+              </p>
+              <p className="font-paragraph text-xl md:text-2xl text-dark-brown font-semibold">
+                {currency(calculations.totalPayment + calculations.originationFee)}
               </p>
             </div>
           </div>
 
-          {/* View Sample Schedule Button */}
           <Button
             onClick={() => setIsScheduleOpen(true)}
             className="w-full bg-dark-brown hover:bg-dark-brown-light text-white font-paragraph font-semibold py-2 rounded-lg transition-colors text-lg"
           >
-            view sample schedule
+            {t("viewSchedule")}
           </Button>
 
-          {/* Discrete Disclaimer */}
-          <p className="font-paragraph text-xs text-dark-brown-light/60 text-center pt-2">the calculator provides indicative sample terms only; final terms offered to you may differ</p>
+          <p className="font-paragraph text-xs text-dark-brown-light/60 text-center pt-2">
+            {t("disclaimer")}
+          </p>
         </div>
       </Card>
-      {/* Payment Schedule Dialog */}
+
+      {/* Schedule Dialog */}
       <Dialog open={isScheduleOpen} onOpenChange={setIsScheduleOpen}>
         <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-white border border-dark-brown/10">
           <DialogHeader>
-            <DialogTitle className="font-paragraph text-2xl text-dark-brown font-semibold">payment schedule sample</DialogTitle>
+            <DialogTitle className="font-paragraph text-2xl text-dark-brown font-semibold">
+              {t("schedule.title")}
+            </DialogTitle>
           </DialogHeader>
 
           <div className="mt-6 space-y-6">
-            {/* Source Data Display */}
+            {/* Source Data */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-vibrant-yellow-light rounded-lg border border-dark-brown/10">
               <div>
                 <p className="font-paragraph text-xs text-dark-brown-light mb-1">
-                  credit amount
+                  {t("creditAmount")}
                 </p>
                 <p className="font-paragraph text-lg text-dark-brown font-semibold">
-                  {formatCurrency(creditAmount)}
+                  {currency(creditAmount)}
                 </p>
               </div>
               <div>
                 <p className="font-paragraph text-xs text-dark-brown-light mb-1">
-                  annual rate
+                  {t("annualRate")}
                 </p>
                 <p className="font-paragraph text-lg text-dark-brown font-semibold">
-                  {annualRate.toFixed(2).replace('.', ',')}%
+                  {percent(annualRate)}
                 </p>
               </div>
               <div>
                 <p className="font-paragraph text-xs text-dark-brown-light mb-1">
-                  duration
+                  {t("duration")}
                 </p>
                 <p className="font-paragraph text-lg text-dark-brown font-semibold">
-                  {duration} months
+                  {t("monthsCount", { count: duration })}
                 </p>
               </div>
               <div>
                 <p className="font-paragraph text-xs text-dark-brown-light mb-1">
-                  schedule type
+                  {t("scheduleType")}
                 </p>
                 <p className="font-paragraph text-lg text-dark-brown font-semibold">
-                  {scheduleType}
+                  {t(scheduleType)}
                 </p>
               </div>
             </div>
 
-            {/* Schedule Table */}
+            {/* Table */}
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-dark-brown/20">
-                    <th className="text-left py-3 px-4 font-paragraph text-dark-brown font-semibold">month</th>
-                    <th className="text-right py-3 px-4 font-paragraph text-dark-brown font-semibold">loan balance</th>
-                    <th className="text-right py-3 px-4 font-paragraph text-dark-brown font-semibold">principal repayment</th>
-                    <th className="text-right py-3 px-4 font-paragraph text-dark-brown font-semibold">interest payment</th>
-                    <th className="text-right py-3 px-4 font-paragraph text-dark-brown font-semibold">origination fee</th>
+                    <th className="text-left py-3 px-4 font-paragraph text-dark-brown font-semibold">
+                      {t("schedule.month")}
+                    </th>
+                    <th className="text-right py-3 px-4 font-paragraph text-dark-brown font-semibold">
+                      {t("schedule.balance")}
+                    </th>
+                    <th className="text-right py-3 px-4 font-paragraph text-dark-brown font-semibold">
+                      {t("schedule.principal")}
+                    </th>
+                    <th className="text-right py-3 px-4 font-paragraph text-dark-brown font-semibold">
+                      {t("schedule.interest")}
+                    </th>
+                    <th className="text-right py-3 px-4 font-paragraph text-dark-brown font-semibold">
+                      {t("schedule.originationFee")}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {calculations.schedule.map((item, index) => {
-                    return (
-                      <tr
-                        key={index}
-                        className={`border-b border-dark-brown/10 ${
-                          index % 2 === 0 ? 'bg-white' : 'bg-vibrant-yellow-light'
-                        }`}
-                      >
-                        <td className="py-3 px-4 font-paragraph text-dark-brown">
-                          {item.month}
-                        </td>
-                        <td className="text-right py-3 px-4 font-paragraph text-dark-brown">
-                          {formatCurrency(item.balance)}
-                        </td>
-                        <td className="text-right py-3 px-4 font-paragraph text-dark-brown">
-                          {formatCurrency(item.principal)}
-                        </td>
-                        <td className="text-right py-3 px-4 font-paragraph text-dark-brown">
-                          {formatCurrency(item.interest)}
-                        </td>
-                        <td className="text-right py-3 px-4 font-paragraph text-dark-brown">
-                          {formatCurrency(item.originationFee)}
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {calculations.schedule.map((item, index) => (
+                    <tr
+                      key={index}
+                      className={`border-b border-dark-brown/10 ${
+                        index % 2 === 0 ? "bg-white" : "bg-vibrant-yellow-light"
+                      }`}
+                    >
+                      <td className="py-3 px-4 font-paragraph text-dark-brown">
+                        {item.month}
+                      </td>
+                      <td className="text-right py-3 px-4 font-paragraph text-dark-brown">
+                        {currency(item.balance)}
+                      </td>
+                      <td className="text-right py-3 px-4 font-paragraph text-dark-brown">
+                        {currency(item.principal)}
+                      </td>
+                      <td className="text-right py-3 px-4 font-paragraph text-dark-brown">
+                        {currency(item.interest)}
+                      </td>
+                      <td className="text-right py-3 px-4 font-paragraph text-dark-brown">
+                        {currency(item.originationFee)}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -349,34 +372,34 @@ export default function LoanCalculator() {
             <div className="mt-6 pt-6 border-t border-dark-brown/20 grid grid-cols-2 md:grid-cols-4 gap-4">
               <div>
                 <p className="font-paragraph text-xs text-dark-brown-light mb-1">
-                  total principal
+                  {t("schedule.totalPrincipal")}
                 </p>
                 <p className="font-paragraph text-lg text-dark-brown font-semibold">
-                  {formatCurrency(creditAmount)}
+                  {currency(creditAmount)}
                 </p>
               </div>
               <div>
                 <p className="font-paragraph text-xs text-dark-brown-light mb-1">
-                  total interest
+                  {t("totalInterest")}
                 </p>
                 <p className="font-paragraph text-lg text-dark-brown font-semibold">
-                  {formatCurrency(calculations.totalInterest)}
+                  {currency(calculations.totalInterest)}
                 </p>
               </div>
               <div>
                 <p className="font-paragraph text-xs text-dark-brown-light mb-1">
-                  total origination fee
+                  {t("schedule.totalOriginationFee")}
                 </p>
                 <p className="font-paragraph text-lg text-dark-brown font-semibold">
-                  {formatCurrency(calculations.originationFee)}
+                  {currency(calculations.originationFee)}
                 </p>
               </div>
               <div>
                 <p className="font-paragraph text-xs text-dark-brown-light mb-1">
-                  total amount due
+                  {t("schedule.totalDue")}
                 </p>
                 <p className="font-paragraph text-lg text-dark-brown font-semibold">
-                  {formatCurrency(calculations.totalPayment + calculations.originationFee)}
+                  {currency(calculations.totalPayment + calculations.originationFee)}
                 </p>
               </div>
             </div>

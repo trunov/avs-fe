@@ -522,5 +522,32 @@
         }
       }
     }
+  },
+  "LoanCalculator": {
+    "creditAmount": "credit amount",
+    "annualRate": "annual rate",
+    "duration": "duration",
+    "monthsCount": "{count} months",
+    "yearsCount": "{years} years",
+    "scheduleType": "schedule type",
+    "annuity": "annuity",
+    "bullet": "bullet",
+    "monthlyPayment": "monthly payment",
+    "totalInterest": "total interest",
+    "originationFee": "origination fee",
+    "totalPayment": "total payment",
+    "viewSchedule": "view sample schedule",
+    "disclaimer": "the calculator provides indicative sample terms only; final terms offered to you may differ",
+    "schedule": {
+      "title": "payment schedule sample",
+      "month": "month",
+      "balance": "loan balance",
+      "principal": "principal repayment",
+      "interest": "interest payment",
+      "originationFee": "origination fee",
+      "totalPrincipal": "total principal",
+      "totalOriginationFee": "total origination fee",
+      "totalDue": "total amount due"
+    }
   }
 }

@@ -523,5 +523,32 @@
       "subheading": "meie klienditugi aitab sind hea meelega. võta meiega ühendust, kui sul on küsimusi või vajad täpsustusi.",
       "button": "võta ühendust"
     }
+  },
+  "LoanCalculator": {
+    "creditAmount": "krediidisumma",
+    "annualRate": "aastane intressimäär",
+    "duration": "periood",
+    "monthsCount": "{count} kuud",
+    "yearsCount": "{years} aastat",
+    "scheduleType": "graafiku tüüp",
+    "annuity": "annuiteet",
+    "bullet": "bulletgraafik",
+    "monthlyPayment": "kuumakse",
+    "totalInterest": "intress kokku",
+    "originationFee": "lepingutasu",
+    "totalPayment": "makse kokku",
+    "viewSchedule": "vaata näidisgraafikut",
+    "disclaimer": "kalkulaator annab üksnes indikatiivsed näidistingimused; teile pakutavad lõplikud tingimused võivad erineda",
+    "schedule": {
+      "title": "maksegraafiku näidis",
+      "month": "kuu",
+      "balance": "laenujääk",
+      "principal": "põhiosa tagasimakse",
+      "interest": "intressimakse",
+      "originationFee": "lepingutasu",
+      "totalPrincipal": "põhiosa kokku",
+      "totalOriginationFee": "lepingutasu kokku",
+      "totalDue": "tasumisele kuuluv summa kokku"
+    }
   }
 }
