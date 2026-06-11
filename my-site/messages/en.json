@@ -549,5 +549,10 @@
       "totalOriginationFee": "total origination fee",
       "totalDue": "total amount due"
     }
+  },
+  "ApplicationSuccessPage": {
+    "heading": "Application submitted",
+    "body": "Thank you — we've received your financing application and our team will review it shortly. We'll be in touch using the contact details you provided.",
+    "redirecting": "You'll be redirected to the home page in a few seconds…"
   }
 }

@@ -550,5 +550,10 @@
       "totalOriginationFee": "lepingutasu kokku",
       "totalDue": "tasumisele kuuluv summa kokku"
     }
+  },
+  "ApplicationSuccessPage": {
+    "heading": "Taotlus esitatud",
+    "body": "Aitäh — saime teie finantseerimistaotluse kätte ja vaatame selle peagi üle. Võtame teiega ühendust teie esitatud kontaktandmetel.",
+    "redirecting": "Suuname teid mõne sekundi pärast avalehele…"
   }
 }
