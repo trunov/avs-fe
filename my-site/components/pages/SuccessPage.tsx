@@ -1,19 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
 export default function ApplicationSuccessPage() {
   const t = useTranslations("ApplicationPage");
-  const router = useRouter();
-
-  useEffect(() => {
-    const timer = setTimeout(() => router.push("/"), 5000);
-    return () => clearTimeout(timer);
-  }, [router]);
 
   return (
     <section className="w-full max-w-[120rem] mx-auto px-6 md:px-12 py-32">
