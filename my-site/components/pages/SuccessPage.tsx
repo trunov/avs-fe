@@ -1,11 +1,22 @@
 "use client";
-
+import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
 export default function ApplicationSuccessPage() {
   const t = useTranslations("ApplicationPage");
+
+  useEffect(() => {
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    if (typeof w.gtag === "function") {
+      w.gtag("event", "conversion", {
+        send_to: "AW-18236975823/KAZJCNeNtr4cEM_ViPhD",
+        value: 1.0,
+        currency: "EUR",
+      });
+    }
+  }, []);
 
   return (
     <section className="w-full max-w-[120rem] mx-auto px-6 md:px-12 py-32">
